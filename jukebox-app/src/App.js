@@ -24,7 +24,6 @@ class App extends Component {
     event.preventDefault();
     this.setState(
       {
-        
         searchURL:
           this.state.baseURL +
           this.state.query +
