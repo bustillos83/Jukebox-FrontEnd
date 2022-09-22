@@ -7,8 +7,8 @@ class App extends Component {
 
     this.state = {
       baseURL: 'http://ws.audioscrobbler.com/2.0/?',
-      apiKey: `apikey=${process.env.REACT_APP_API_KEY}`,
-      query: '&q=',
+      query: 'method=track.search&track=',
+      apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json`,
       musicSearch: '',
       searchURL: ''
     }
@@ -24,7 +24,7 @@ class App extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.setState({
-      searchURL: this.state.baseURL + this.state.apiKey + this.state.query + this.state.musicSearch
+      searchURL: this.state.baseURL + this.state.query + this.state.musicSearch + this.state.apiKey  
     }, () => {
       // fetch request will go here 
       fetch(this.state.searchURL)
@@ -37,6 +37,7 @@ class App extends Component {
   }
 
 render(){
+  console.log(this.state)
   return(
     <div>
       <form onSubmit={this.handleSubmit}>
