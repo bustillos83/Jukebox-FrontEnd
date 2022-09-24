@@ -49,7 +49,7 @@ class App extends Component {
   render() {
     
     return (
-      <div>
+      <div className="navbar">
         <form onSubmit={this.handleSubmit}>
           <select name="searchOption" id="searchOption">
             <option value="artist">Artist</option>
