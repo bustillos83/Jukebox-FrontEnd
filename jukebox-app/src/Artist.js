@@ -13,8 +13,6 @@ class Artist extends Component {
             <div >
             
             <h2 key={data.mbid}><img src={data.image[3]["#text"]}/> {data.name}</h2>
-           
-
             </div>
           )
         })}
