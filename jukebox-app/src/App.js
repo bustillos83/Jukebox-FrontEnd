@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Select from "react-select";
-import Artist from "./Artist";
+// === IMPORT COMPONENTS === //
+import Album from './Album'
+// import Artist from "./Artist";
 import "./App.css";
 
 const searchOptions = [
@@ -64,7 +66,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.searchURL);
+    // console.log(this.state.searchURL);
     return (
       <div className="navbar">
         <form onSubmit={this.handleSubmit}>
@@ -82,7 +84,8 @@ class App extends Component {
           />
           <input type="submit" value="Search" />
         </form>
-        {this.state.music ? <Artist music={this.state.music} /> : ""}
+        {(this.state.music) ? <Album music={this.state.music}/> : ''}
+        {/* {this.state.music ? <Artist music={this.state.music} /> : ""} */}
       </div>
     );
   }
