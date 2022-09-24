@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       baseURL: "http://ws.audioscrobbler.com/2.0/?",
       method: "",
-      apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json`,
+      apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=5`,
       musicSearch: "",
       searchURL: "",
     };
@@ -23,7 +23,7 @@ class App extends Component {
 
   handleSelect = (option) => {
     if (option === searchOptions[0]) {
-      this.setState({ method: "method=artist.search&artist=" });
+      this.setState({ method: "method=artist.getinfo&artist=" });
     } else if (option === searchOptions[1]) {
       this.setState({ method: "method=album.search&album=" });
     } else if (option === searchOptions[2]) {
@@ -66,7 +66,7 @@ class App extends Component {
   render() {
     console.log(this.state.searchURL);
     return (
-      <div>
+      <div className="navbar">
         <form onSubmit={this.handleSubmit}>
           <Select
             id="searchOption"
