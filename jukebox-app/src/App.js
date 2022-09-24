@@ -13,10 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       baseURL: "http://ws.audioscrobbler.com/2.0/?",
-      // change start
-      searchOption: "",
       method: "",
-      // change end
       apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json`,
       musicSearch: "",
       searchURL: "",
