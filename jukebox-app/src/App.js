@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Select from "react-select";
 import Artist from "./Artist";
+import Song from "./Song";
 import "./App.css";
 
 const searchOptions = [
@@ -23,11 +24,11 @@ class App extends Component {
 
   handleSelect = (option) => {
     if (option === searchOptions[0]) {
-      this.setState({ method: "method=artist.getinfo&artist=" });
+      this.setState({ method: "method=artist.gettopalbums&artist=" });
     } else if (option === searchOptions[1]) {
       this.setState({ method: "method=album.search&album=" });
     } else if (option === searchOptions[2]) {
-      this.setState({ method: "method=track.search&track=" });
+      this.setState({ method: "method=track.getInfo&=" });
     }
   };
 
@@ -66,7 +67,7 @@ class App extends Component {
   render() {
     console.log(this.state.searchURL);
     return (
-      <div className="navbar">
+      <div>
         <form onSubmit={this.handleSubmit}>
           <Select
             id="searchOption"
@@ -83,6 +84,7 @@ class App extends Component {
           <input type="submit" value="Search" />
         </form>
         {this.state.music ? <Artist music={this.state.music} /> : ""}
+        {this.state.music ? <Song music={this.state.music} /> : ""}
       </div>
     );
   }
