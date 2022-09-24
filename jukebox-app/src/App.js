@@ -1,22 +1,44 @@
 import React, { Component } from "react";
+import Select from 'react-select'
 import "./App.css";
+
+const searchOptions = [
+  {label: 'Artist', value: 'artist'},
+  {label: 'Album', value: 'album'},
+  {label: 'Song', value: 'track'}
+]
 
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       baseURL: "http://ws.audioscrobbler.com/2.0/?",
-      query: "method=track.search&track=",
+      // change start
+      searchOption: "",
+      method: "",
+      // change end
       apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json`,
       musicSearch: "",
       searchURL: "",
     };
   }
 
+  handleSelect = (option) => {
+    if(option === searchOptions[0]){
+      this.setState({method: "method=artist.search&artist="})
+    }
+    else if(option === searchOptions[1]){
+      this.setState({method: "method=album.search&album="})
+    }
+    else if(option === searchOptions[2]){
+      this.setState({method: "method=track.search&track="})
+    }
+  }
+
+
   handleChange = (event) => {
     this.setState({
-      [event.target.id]: event.target.value,
+      [event.target.id] : event.target.value,
     });
   };
 
@@ -26,7 +48,7 @@ class App extends Component {
       {
         searchURL:
           this.state.baseURL +
-          this.state.query +
+          this.state.method +
           this.state.musicSearch +
           this.state.apiKey,
       },
@@ -47,15 +69,14 @@ class App extends Component {
   };
 
   render() {
-    
+    console.log(this.state.searchURL)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <select name="searchOption" id="searchOption">
-            <option value="artist">Artist</option>
-            <option value="album">Album</option>
-            <option value="song">Song</option>
-          </select>
+          <Select id='searchOption'
+          options={searchOptions}
+          onChange={this.handleSelect}
+          />
           <input
             id="musicSearch"
             type="text"
