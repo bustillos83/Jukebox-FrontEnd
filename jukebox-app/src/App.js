@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import Select from "react-select";
+// === IMPORT COMPONENTS === //
+import Album from "./Album";
 import Artist from "./Artist";
 import Song from "./Song";
+import Navbar from "./components/Navbar";
 import "./App.css";
 
 const searchOptions = [
@@ -65,7 +68,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.searchURL);
+    // console.log(this.state.searchURL);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -74,16 +77,21 @@ class App extends Component {
             options={searchOptions}
             onChange={this.handleSelect}
           />
-          <input
-            id="musicSearch"
-            type="text"
-            placeholder="Search for music..."
-            value={this.state.musicSearch}
-            onChange={this.handleChange}
-          />
-          <input type="submit" value="Search" />
+          <div className="search-input">
+            <input
+              id="musicSearch"
+              type="text"
+              placeholder="Search for music..."
+              value={this.state.musicSearch}
+              onChange={this.handleChange}
+            />
+            <input type="submit" value="Search" />
+          </div>
         </form>
+
+        {this.state.music ? <Album music={this.state.music} /> : ""}
         {this.state.music ? <Artist music={this.state.music} /> : ""}
+
         {this.state.music ? <Song music={this.state.music} /> : ""}
       </div>
     );
