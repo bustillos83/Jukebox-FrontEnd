@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import Select from 'react-select'
+import Select from "react-select";
+import Artist from "./Artist";
 import "./App.css";
 
 const searchOptions = [
-  {label: 'Artist', value: 'artist'},
-  {label: 'Album', value: 'album'},
-  {label: 'Song', value: 'track'}
-]
+  { label: "Artist", value: "artist" },
+  { label: "Album", value: "album" },
+  { label: "Song", value: "track" },
+];
 
 class App extends Component {
   constructor(props) {
@@ -21,21 +22,18 @@ class App extends Component {
   }
 
   handleSelect = (option) => {
-    if(option === searchOptions[0]){
-      this.setState({method: "method=artist.search&artist="})
+    if (option === searchOptions[0]) {
+      this.setState({ method: "method=artist.search&artist=" });
+    } else if (option === searchOptions[1]) {
+      this.setState({ method: "method=album.search&album=" });
+    } else if (option === searchOptions[2]) {
+      this.setState({ method: "method=track.search&track=" });
     }
-    else if(option === searchOptions[1]){
-      this.setState({method: "method=album.search&album="})
-    }
-    else if(option === searchOptions[2]){
-      this.setState({method: "method=track.search&track="})
-    }
-  }
-
+  };
 
   handleChange = (event) => {
     this.setState({
-      [event.target.id] : event.target.value,
+      [event.target.id]: event.target.value,
     });
   };
 
@@ -66,13 +64,14 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.searchURL)
+    console.log(this.state.searchURL);
     return (
       <div className="navbar">
         <form onSubmit={this.handleSubmit}>
-          <Select id='searchOption'
-          options={searchOptions}
-          onChange={this.handleSelect}
+          <Select
+            id="searchOption"
+            options={searchOptions}
+            onChange={this.handleSelect}
           />
           <input
             id="musicSearch"
@@ -83,6 +82,7 @@ class App extends Component {
           />
           <input type="submit" value="Search" />
         </form>
+        {this.state.music ? <Artist music={this.state.music} /> : ""}
       </div>
     );
   }
