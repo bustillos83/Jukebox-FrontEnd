@@ -23,7 +23,7 @@ class App extends Component {
 
   handleSelect = (option) => {
     if (option === searchOptions[0]) {
-      this.setState({ method: "method=artist.gettopalbums&artist=" });
+      this.setState({ method: "method=artist.getinfo&artist=" });
     } else if (option === searchOptions[1]) {
       this.setState({ method: "method=album.search&album=" });
     } else if (option === searchOptions[2]) {
