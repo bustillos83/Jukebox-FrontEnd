@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Select from "react-select";
 // === IMPORT COMPONENTS === //
 import Album from './Album'
-// import Artist from "./Artist";
+import Artist from "./Artist";
 import "./App.css";
 
 const searchOptions = [
@@ -85,7 +85,7 @@ class App extends Component {
           <input type="submit" value="Search" />
         </form>
         {(this.state.music) ? <Album music={this.state.music}/> : ''}
-        {/* {this.state.music ? <Artist music={this.state.music} /> : ""} */}
+        {this.state.music ? <Artist music={this.state.music} /> : ""}
       </div>
     );
   }
