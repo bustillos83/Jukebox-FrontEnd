@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import Select from "react-select";
+import { findDOMNode, render } from "react-dom";
 // === IMPORT COMPONENTS === //
-import Album from './components/Album'
+// import Album from './components/Album'
+// import Song from "./Song"
 import Artist from './components/Artist';
 import Navbar from "./components/Navbar";
+import Toptracks from "./components/Toptracks";
 import "./App.css";
-
 
 const searchOptions = [
   { label: "Artist", value: "artist" },
@@ -31,7 +33,7 @@ class App extends Component {
     } else if (option === searchOptions[1]) {
       this.setState({ method: "method=album.search&album=" });
     } else if (option === searchOptions[2]) {
-      this.setState({ method: "method=track.search&track=" });
+      this.setState({ method: "method=track.getInfo&=" });
     }
   };
 
@@ -70,34 +72,33 @@ class App extends Component {
   render() {
     // console.log(this.state.searchURL);
     return (
-      <>
+      <div>
       <Navbar />
-      <div >
-        <form className="search-bar" onSubmit={this.handleSubmit}>
-          <Select className="select-container"
+      <div className="search">
+        <form className="search-bar " onSubmit={this.handleSubmit}>
+          <Select className="select-container "
             id="searchOption"
             options={searchOptions}
             onChange={this.handleSelect}
           />
-          <div className="search-input">
-          <input
-            id="musicSearch"
-            type="text"
-            placeholder="Search for music..."
-            value={this.state.musicSearch}
-            onChange={this.handleChange}
-          />
-          <input type="submit" value="Search" />
+          <div >
+            <input
+              id="musicSearch"
+              type="text"
+              placeholder="Search for music..."
+              value={this.state.musicSearch}
+              onChange={this.handleChange}
+            />
+            <input type="submit" value="Search" />
           </div>
         </form>
-
-        {(this.state.music) ? <Album music={this.state.music}/> : ''}
-
         </div>
-
+        <Toptracks />
+        {/* {this.state.music ? <Album music={this.state.music} /> : ""} */}
         {this.state.music ? <Artist music={this.state.music} /> : ""}
-      
-      </>
+
+        {/* {this.state.music ? <Song music={this.state.music} /> : ""} */}
+      </div>
     );
   }
 }

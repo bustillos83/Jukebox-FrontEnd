@@ -1,29 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+
 .App {
   text-align: center;
 }
 
-.search-bar {
-  border: 2px solid red;
+.navbar {
   display: flex;
   flex-direction: row;
-  width: 800px;
   align-items: center;
+  border: 2px solid black;
+  color: white;
+  background-color: black;
+  font-family: 'DynaPuff', cursive;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+
+}
+
+h1 {
+  flex-grow:1;
+  margin-left: 15px;
+}
+
+a {
+  color: white;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+
+.search {
+  display: flex;
+  justify-content: center;
+
+}
+.search-bar {
+  /* border: 1px solid grey; */
+  margin-top: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
  
 }
 
+
+
 .select-container {
   width: 100px;
+  
   
 }
 .css-1s2u09g-control {
   
 }
 
-input[type=text] {
-  height: 38px;
+#musicSearch{
+  width: 400px;
+  height: 34px;
   margin-left: 20px;
   margin-right: 10px;
-  border: 2px solid #cccccc;
+  border: 1px solid #7e7c7c;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
@@ -31,9 +77,9 @@ input[type=text]:focus {
  
 }
 input[type=submit] {
-  height: 45px;
+  height: 38px;
   background: #ffffff;
-  border: 2px solid rgb(226, 32, 203);
+  border: 1px solid rgb(26, 25, 25);
   cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
