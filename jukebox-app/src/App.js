@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Select from "react-select";
 // === IMPORT COMPONENTS === //
-import Album from './Album'
-import Artist from "./Artist";
+import Album from './components/Album'
+import Artist from './components/Artist';
 import Navbar from "./components/Navbar";
 import "./App.css";
 
