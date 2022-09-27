@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Select from "react-select";
 // === IMPORT COMPONENTS === //
-import Album from "./Album";
+// import Album from "./Album";
 import Artist from "./Artist";
 import Song from "./Song";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import "./App.css";
 
 const searchOptions = [
@@ -26,13 +26,16 @@ class App extends Component {
   }
 
   handleSelect = (option) => {
+    console.log(option);
+
     if (option === searchOptions[0]) {
       this.setState({ method: "method=artist.gettopalbums&artist=" });
     } else if (option === searchOptions[1]) {
       this.setState({ method: "method=album.search&album=" });
     } else if (option === searchOptions[2]) {
-      this.setState({ method: "method=track.getInfo&=" });
+      this.setState({ method: "method=track.search&track=" });
     }
+    console.log(this.state.method);
   };
 
   handleChange = (event) => {
@@ -89,9 +92,8 @@ class App extends Component {
           </div>
         </form>
 
-        {this.state.music ? <Album music={this.state.music} /> : ""}
+        {/* {this.state.music ? <Album music={this.state.music} /> : ""} */}
         {this.state.music ? <Artist music={this.state.music} /> : ""}
-
         {this.state.music ? <Song music={this.state.music} /> : ""}
       </div>
     );

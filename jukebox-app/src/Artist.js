@@ -7,7 +7,7 @@ class Artist extends Component {
     return (
       <div>
         <h1>Albums</h1>
-        {this.props.music.topalbums.album.map((data) => {
+        {/* {this.props.music.topalbums.album.map((data) => {
           return (
             <div>
               <h2 key={data.mbid}>
@@ -15,7 +15,7 @@ class Artist extends Component {
               </h2>
             </div>
           );
-        })}
+        })} */}
       </div>
     );
   }
