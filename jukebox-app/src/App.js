@@ -3,9 +3,13 @@ import Select from "react-select";
 import { findDOMNode, render, unmountComponentAtNode } from "react-dom";
 // === IMPORT COMPONENTS === //
 // import Album from "./Album";
-import Artist from "./Artist";
 import Song from "./Song";
 // import Navbar from "./components/Navbar";
+// import Album from './components/Album'
+// import Song from "./Song"
+import Artist from "./components/Artist";
+import Navbar from "./components/Navbar";
+import Toptracks from "./components/Toptracks";
 import "./App.css";
 
 const searchOptions = [
@@ -104,27 +108,36 @@ class App extends Component {
     // console.log("method:", this.state.method);
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <Select
-            id="searchOption"
-            options={searchOptions}
-            onChange={this.handleSelect}
-          />
-          <div className="search-input">
-            <input
-              id="musicSearch"
-              type="text"
-              placeholder="Search for music..."
-              value={this.state.musicSearch}
-              onChange={this.handleChange}
+        <Navbar />
+        <div className="search">
+          <form className="search-bar " onSubmit={this.handleSubmit}>
+            <Select
+              className="select-container "
+              id="searchOption"
+              options={searchOptions}
+              onChange={this.handleSelect}
             />
-            <input type="submit" value="Search" />
-          </div>
-        </form>
+            <div>
+              <input
+                id="musicSearch"
+                type="text"
+                placeholder="Search for music..."
+                value={this.state.musicSearch}
+                onChange={this.handleChange}
+              />
+              <input type="submit" value="Search" />
+            </div>
+          </form>
 
+          {/* {this.state.music ? <Album music={this.state.music} /> : ""} */}
+          {this.state.music ? <Artist music={this.state.music} /> : ""}
+          {this.state.music ? <Song music={this.state.music} /> : ""}
+        </div>
+        <Toptracks />
         {/* {this.state.music ? <Album music={this.state.music} /> : ""} */}
         {this.state.music ? <Artist music={this.state.music} /> : ""}
-        {this.state.music ? <Song music={this.state.music} /> : ""}
+
+        {/* {this.state.music ? <Song music={this.state.music} /> : ""} */}
       </div>
     );
   }
