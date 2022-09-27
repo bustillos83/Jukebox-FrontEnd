@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import Select from "react-select";
-import { findDOMNode, render, unmountComponentAtNode } from "react-dom";
+// import { findDOMNode, render, unmountComponentAtNode } from 'react-dom'
 // === IMPORT COMPONENTS === //
-// import Album from "./Album";
-import Song from "./Song";
-// import Navbar from "./components/Navbar";
-// import Album from './components/Album'
-// import Song from "./Song"
+import Album from "./components/Album";
 import Artist from "./components/Artist";
+import Song from "./Song";
 import Navbar from "./components/Navbar";
 import Toptracks from "./components/Toptracks";
 import "./App.css";
@@ -32,7 +29,7 @@ class App extends Component {
   }
 
   handleSelect = (option) => {
-    console.log(option);
+    // console.log("searchOption:", this.state.searchOption)
 
     if (option === searchOptions[0]) {
       this.setState({
@@ -47,9 +44,14 @@ class App extends Component {
         method: "method=album.search&album=",
       });
     } else if (option === searchOptions[2]) {
-      this.setState({ method: "method=track.search&track=" });
+      this.setState({
+        ...this.state,
+        searchOption: option.value,
+        method: "method=track.search&track=",
+      });
     }
-    console.log(this.state.method);
+    this.performSearch();
+    console.log("THIS IS THE STATE IN handleSelect", this.state);
   };
 
   // not working when passing as prop to <Select/> but will work when passed to regular html element
@@ -128,16 +130,24 @@ class App extends Component {
               <input type="submit" value="Search" />
             </div>
           </form>
-
-          {/* {this.state.music ? <Album music={this.state.music} /> : ""} */}
-          {this.state.music ? <Artist music={this.state.music} /> : ""}
-          {this.state.music ? <Song music={this.state.music} /> : ""}
         </div>
         <Toptracks />
-        {/* {this.state.music ? <Album music={this.state.music} /> : ""} */}
-        {this.state.music ? <Artist music={this.state.music} /> : ""}
 
-        {/* {this.state.music ? <Song music={this.state.music} /> : ""} */}
+        {this.state.music && this.state.searchOption === "album" && (
+          <Album music={this.state.music} />
+        )}
+
+        {this.state.music && this.state.searchOption === "artist" ? (
+          <Artist music={this.state.music} />
+        ) : (
+          ""
+        )}
+
+        {this.state.music && this.state.searchOption === "track" ? (
+          <Song music={this.state.music} />
+        ) : (
+          ""
+        )}
       </div>
     );
   }

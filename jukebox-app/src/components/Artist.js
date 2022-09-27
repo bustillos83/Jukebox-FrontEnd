@@ -2,21 +2,23 @@ import React, { Component } from "react";
 
 class Artist extends Component {
   render() {
+    // console.log(this.props.music.topalbums.album);
+
     return (
       <div>
-        <h1>Albums</h1>
-        {this.props.music.topalbums.album.map((data, index) => {
+        <h1>Artist</h1>
+        {this.props.music?.topalbums?.album?.map((data, index) => {
           return (
-            <div key={index} >
-            <h2><img src={data.image[3]["#text"]}/> {data.name}</h2> 
+            <div key={index}>
+              <h2>
+                <img src={data.image[3]["#text"]} alt="" /> {data.name}
+              </h2>
             </div>
-          )
+          );
         })}
-
       </div>
-      
-    )
+    );
   }
 }
 
-export default Artist
+export default Artist;
