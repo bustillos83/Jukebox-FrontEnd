@@ -7,8 +7,9 @@ class Toptracks extends Component {
 
     render () {
         return(
-            <div>
-            <h1>Trending now!</h1>
+            <div className="top-tracks">
+            <h1>Trending music now!</h1>
+            <div className="tracks-div"></div>
             </div>
             
         )

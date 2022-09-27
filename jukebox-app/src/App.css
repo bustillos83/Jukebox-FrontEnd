@@ -4,36 +4,6 @@
   text-align: center;
 }
 
-.navbar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: 2px solid black;
-  color: white;
-  background-color: black;
-  font-family: 'DynaPuff', cursive;
-}
-
-img {
-  width: 100px;
-  height: 100px;
-
-}
-
-h1 {
-  flex-grow:1;
-  margin-left: 15px;
-}
-
-a {
-  color: white;
-  margin-right: 20px;
-  text-decoration: none;
-}
-
-a:hover {
-  cursor: pointer;
-}
 
 
 .search {
@@ -83,6 +53,16 @@ input[type=submit] {
   cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+}
+
+.top-tracks {
+  font-family: 'DynaPuff', cursive;
+}
+
+.tracks-div {
+  width:300px;
+  height: 300px;
+  border: 2px solid red;
 }
 @media only screen and (max-device-width: 667px) {
   

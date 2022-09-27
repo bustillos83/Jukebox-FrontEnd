@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Select from "react-select";
-import { findDOMNode, render } from "react-dom";
 // === IMPORT COMPONENTS === //
 // import Album from './components/Album'
 // import Song from "./Song"
@@ -8,6 +7,7 @@ import Artist from './components/Artist';
 import Navbar from "./components/Navbar";
 import Toptracks from "./components/Toptracks";
 import "./App.css";
+
 
 const searchOptions = [
   { label: "Artist", value: "artist" },
