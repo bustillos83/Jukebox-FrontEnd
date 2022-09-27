@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Select from "react-select";
-import { findDOMNode, render, unmountComponentAtNode } from 'react-dom'
+// import { findDOMNode, render, unmountComponentAtNode } from 'react-dom'
 // === IMPORT COMPONENTS === //
 import Album from "./Album";
 import Artist from "./Artist";
@@ -31,6 +31,7 @@ class App extends Component {
   handleSelect = (option) => {
     // console.log("searchOption:", this.state.searchOption)
     
+
     if (option === searchOptions[0]) {
       this.setState({ 
         ...this.state,
