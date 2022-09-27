@@ -2,13 +2,18 @@ import React, { Component } from "react";
 import "./Album.css";
 
 class Album extends Component {
+    constructor(props){
+        super(props)
+       
+    }
+
   render() {
     console.log("ALBUM DATA", this.props.music);
     return (
       <div className="albumSearch">
         <h1>Album search results...</h1>
         <div className="albumResults">
-          {this.props.music.results.albummatches.album.map((albums, index) => {
+          {this.props.music?.results?.albummatches?.album?.map((albums, index) => {
             return (
               <div key={index} className="albumInfo">
                 {/* img and album name will direct user to last.fm album page */}

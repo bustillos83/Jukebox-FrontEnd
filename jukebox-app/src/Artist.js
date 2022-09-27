@@ -9,8 +9,8 @@ class Artist extends Component {
         <h1>Albums</h1>
         {/* {this.props.music.topalbums.album.map((data) => {
           return (
-            <div>
-              <h2 key={data.mbid}>
+            <div key={index}>
+              <h2>
                 <img src={data.image[3]["#text"]} alt="" /> {data.name}
               </h2>
             </div>
