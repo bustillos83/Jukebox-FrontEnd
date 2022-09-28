@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
 
-class TopTracks extends Component {
+class TopArtists extends Component {
     constructor(props) {
         super(props);
         this.state = {
           baseURL: "http://ws.audioscrobbler.com/2.0/?",
-          method: "method=chart.gettoptracks",
+          method: "method=chart.gettopartists",
           apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=5`,
           tracksURL:"",
           music:{},
@@ -52,13 +52,12 @@ class TopTracks extends Component {
             <div className="top-tracks">
             <h1>Trending music now!</h1>
             <div>
-                {this.state.music?.tracks?.track?.map((track, index) => {
+                {this.state.music?.artists?.artist?.map((track, index) => {
                     return (
                         <div key={index}>
-                             <h2>{track.name} by {track.artist.name}</h2>
-                             <h3>Playcount: {track.playcount}</h3>
-                             <a href={track.url}><h4>Listen Now</h4></a>
-                             {/* <img src={track.image[3]["#text"]} alt="" /> */}
+                             <h2>{track.name}</h2>
+                             <h3>{track.playcount}</h3>
+                             <img src={track.image[3]["#text"]} alt="" />
                         </div>
                     )
 
@@ -71,5 +70,5 @@ class TopTracks extends Component {
     }
 }
 
-export default TopTracks
+export default TopArtists
 
