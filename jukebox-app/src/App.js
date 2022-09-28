@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Select from "react-select";
 // import { findDOMNode, render, unmountComponentAtNode } from 'react-dom'
 // === IMPORT COMPONENTS === //
+import Search from "./components/Search"
 import Album from "./components/Album";
 import Artist from "./components/Artist";
 import Song from "./Song";
@@ -104,26 +104,12 @@ class App extends Component {
     return (
       <div>
         <Navbar />
-        <div className="search">
-          <form className="search-bar " onSubmit={this.handleSubmit}>
-            <Select
-              className="select-container "
-              id="searchOption"
-              options={searchOptions}
-              onChange={this.handleSelect}
-            />
-            <div>
-              <input
-                id="musicSearch"
-                type="text"
-                placeholder="Search for music..."
-                value={this.state.musicSearch}
-                onChange={this.handleChange}
-              />
-              <input type="submit" value="Search" />
-            </div>
-          </form>
-        </div>
+        <Search
+        searchOptions={searchOptions}
+        handleSubmit={this.handleSubmit}
+        handleChange={this.handleChange} handleSelect={this.handleSelect}
+        musicSearch={this.state.musicSearch}
+        />
         <div className="trending-now">
           <div className="top-tracks">{!this.state.music && <TopTracks />}</div>
           <div className="top-artists">{!this.state.music && <TopArtists />}</div>
