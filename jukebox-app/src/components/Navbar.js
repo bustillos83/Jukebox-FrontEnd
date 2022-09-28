@@ -1,5 +1,5 @@
 import React from "react";
-import pic from '../images/juke7.png'
+import pic from '../images/juke8.png'
 import "./Navbar.css"
 import Hamburger from "./HamburgerMenu";
 import  { useState } from "react"
