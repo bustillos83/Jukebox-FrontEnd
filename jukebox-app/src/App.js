@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { findDOMNode, render, unmountComponentAtNode } from 'react-dom'
 // === IMPORT COMPONENTS === //
-import Search from "./components/Search"
+import Search from "./components/Search";
 import Album from "./components/Album";
 import Artist from "./components/Artist";
 import Song from "./Song";
@@ -105,14 +105,17 @@ class App extends Component {
       <div>
         <Navbar />
         <Search
-        searchOptions={searchOptions}
-        handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange} handleSelect={this.handleSelect}
-        musicSearch={this.state.musicSearch}
+          searchOptions={searchOptions}
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          handleSelect={this.handleSelect}
+          musicSearch={this.state.musicSearch}
         />
         <div className="trending-now">
           <div className="top-tracks">{!this.state.music && <TopTracks />}</div>
-          <div className="top-artists">{!this.state.music && <TopArtists />}</div>
+          <div className="top-artists">
+            {!this.state.music && <TopArtists />}
+          </div>
           <div className="top-tags">{!this.state.music && <TopTags />}</div>
         </div>
 
@@ -139,3 +142,5 @@ class App extends Component {
 export default App;
 
 // deleted handleclick method
+
+// test
