@@ -5,9 +5,15 @@ class Song extends Component {
     // console.log(this.props.music.results.trackmatches);
     return (
       <div>
-        <h1>Song: {this.props.music?.results?.trackmatches?.track?.name}</h1>
+        <h1>Songs</h1>
         {this.props.music?.results?.trackmatches?.track?.map((song, index) => {
-          return <div key={index}></div>;
+          return <div key={index}>
+          <h2>Song:{song.name} </h2>
+          <h3>Artist:{song.artist}</h3>
+         <a href={song.url}>
+          <button>Click me </button></a>
+          
+          </div>
         })}
       </div>
     );
@@ -15,3 +21,5 @@ class Song extends Component {
 }
 
 export default Song;
+
+
