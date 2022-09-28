@@ -131,7 +131,10 @@ class App extends Component {
             </div>
           </form>
         </div>
-        <Toptracks />
+        {!this.state.music &&
+          <Toptracks />
+        }
+        
 
         {this.state.music && this.state.searchOption === "album" && (
           <Album music={this.state.music} />
