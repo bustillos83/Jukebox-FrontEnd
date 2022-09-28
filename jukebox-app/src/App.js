@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import Select from "react-select";
 // import { findDOMNode, render, unmountComponentAtNode } from 'react-dom'
 // === IMPORT COMPONENTS === //
+import Search from "./components/Search"
 import Album from "./components/Album";
 import Artist from "./components/Artist";
 import Song from "./Song";
 import Navbar from "./components/Navbar";
-import Toptracks from "./components/Toptracks";
+import TopTracks from "./components/TopTracks";
+import TopArtists from "./components/TopArtists";
+import TopTags from "./components/TopTags";
 import "./App.css";
 
 const searchOptions = [
@@ -30,7 +32,6 @@ class App extends Component {
 
   handleSelect = (option) => {
     // console.log("searchOption:", this.state.searchOption)
-
     if (option === searchOptions[0]) {
       this.setState({
         ...this.state,
@@ -52,14 +53,6 @@ class App extends Component {
     }
     this.performSearch();
     console.log("THIS IS THE STATE IN handleSelect", this.state);
-  };
-
-  // not working when passing as prop to <Select/> but will work when passed to regular html element
-  handleClick = () => {
-    console.log("I clicked it");
-    // unmountComponentAtNode(
-    //   document.getElementById('result-container')
-    // )
   };
 
   handleChange = (event) => {
@@ -111,30 +104,17 @@ class App extends Component {
     return (
       <div>
         <Navbar />
-        <div className="search">
-          <form className="search-bar " onSubmit={this.handleSubmit}>
-            <Select
-              className="select-container "
-              id="searchOption"
-              options={searchOptions}
-              onChange={this.handleSelect}
-            />
-            <div>
-              <input
-                id="musicSearch"
-                type="text"
-                placeholder="Search for music..."
-                value={this.state.musicSearch}
-                onChange={this.handleChange}
-              />
-              <input type="submit" value="Search" />
-            </div>
-          </form>
+        <Search
+        searchOptions={searchOptions}
+        handleSubmit={this.handleSubmit}
+        handleChange={this.handleChange} handleSelect={this.handleSelect}
+        musicSearch={this.state.musicSearch}
+        />
+        <div className="trending-now">
+          <div className="top-tracks">{!this.state.music && <TopTracks />}</div>
+          <div className="top-artists">{!this.state.music && <TopArtists />}</div>
+          <div className="top-tags">{!this.state.music && <TopTags />}</div>
         </div>
-        {!this.state.music &&
-          <Toptracks />
-        }
-        
 
         {this.state.music && this.state.searchOption === "album" && (
           <Album music={this.state.music} />
@@ -157,3 +137,5 @@ class App extends Component {
 }
 
 export default App;
+
+// deleted handleclick method
