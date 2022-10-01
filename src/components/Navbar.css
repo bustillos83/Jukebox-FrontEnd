@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid black;
+    color: white;
+    background-color: black;
+    font-family: 'DynaPuff', cursive;
+  }
+  
+  img {
+    width: 150px;
+    height: 100px;
+  
+  }
+  
+  h1 {
+    flex-grow:1;
+    margin-left: 15px;
+  }
+  
+  a {
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    cursor: pointer;
+  }
+  
+
+  /* .links-container{
+    display: none;
+    background-color: white;
+    height: 300px;
+    width: 200px;
+    margin-top: 50px;
+    position: absolute;
+} */
