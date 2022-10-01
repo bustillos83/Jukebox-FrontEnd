@@ -11,6 +11,16 @@ import TopArtists from "./components/TopArtists";
 import TopTags from "./components/TopTags";
 import "./App.css";
 
+let baseURL = "";
+
+if (process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003";
+} else {
+  baseURL = "https://backend-jukebox.herokuapp.com/";
+}
+
+console.log("current base url: ", baseURL);
+
 const searchOptions = [
   { label: "Artist", value: "artist" },
   { label: "Album", value: "album" },
