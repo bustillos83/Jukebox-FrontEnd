@@ -1,6 +1,8 @@
 import React from "react";
 import pic from '../images/juke8.png'
 import "./Navbar.css"
+import Login from './Login'
+import Register from "./Register"
 import Hamburger from "./HamburgerMenu";
 import  { useState } from "react"
 
@@ -17,9 +19,7 @@ function Navbar() {
             <img src={pic}/>
                 <h1>Welcome to Jukebox </h1>
                 <div className="links-container">
-                <a href="#"> Login </a>
-                <a href="#">|</a>
-                <a href="#"> Register </a>
+                <Login/><a href="#">|</a><Register/>
                 </div>
                 <div className="hamburger" onClick={handleClick}>
                     <Hamburger />

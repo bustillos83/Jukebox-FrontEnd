@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { findDOMNode, render, unmountComponentAtNode } from 'react-dom'
 // === IMPORT COMPONENTS === //
 import Search from "./components/Search";
 import Album from "./components/Album";
@@ -10,6 +9,8 @@ import TopTracks from "./components/TopTracks";
 import TopArtists from "./components/TopArtists";
 import TopTags from "./components/TopTags";
 import "./App.css";
+
+
 
 const searchOptions = [
   { label: "Artist", value: "artist" },
@@ -113,9 +114,7 @@ class App extends Component {
         />
         <div className="trending-now">
           <div className="top-tracks">{!this.state.music && <TopTracks />}</div>
-          <div className="top-artists">
-            {!this.state.music && <TopArtists />}
-          </div>
+          <div className="top-artists">{!this.state.music && <TopArtists />}</div>
           <div className="top-tags">{!this.state.music && <TopTags />}</div>
         </div>
 
