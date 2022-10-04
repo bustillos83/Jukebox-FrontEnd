@@ -1,13 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
 
-.modal {
-    color: black;
-    width: 500px;
-    background: white;
-    border: 1px solid #ccc;
-    
+.links-container {
+    display: flex; 
+    padding-right: 20px;
 }
 
-.login-form {
-    display: flex;
-    flex-direction: column;
+Button {
+    font-family: 'DynaPuff', cursive !important;
+    color: white !important;
+}
+
+Button:hover {
+    color: rgb(9, 9, 193) !important;
+    opacity: 90% !important;
+}
+
+.modal {
+    border-radius: 10px;
+    font-family: 'DynaPuff', cursive !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
