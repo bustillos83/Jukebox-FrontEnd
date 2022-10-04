@@ -21,22 +21,38 @@
     font-family: 'DynaPuff', cursive !important;
     display: flex !important;
     flex-direction: column !important;
+    background-color: rgb(43, 43, 43) !important;
+    color: white;
 }
 
-.login-head {
+.login-head, .signup-head {
     font-size: 28px !important;
+    text-decoration: underline;
 }
 
-.login, .login-head {
+.login, .login-head, .signup, .signup-head {
     font-family: 'DynaPuff', cursive !important;
     text-align: center;
 
 }
 
-label, input {
-    margin: 10px;
+.login-form,.signup-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
 }
 
-.username {
+
+
+/* .username {
     margin-left: -50px;
+} */
+
+.submit {
+    font-family: 'DynaPuff', cursive !important;
+    font-size: 16px !important;
+    color: black !important;
+    width: 100px;
 }

@@ -26,13 +26,12 @@ function SignUp() {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className='modal'>
+    <div>
       <Button id="signup" onClick={handleOpen}>
         Sign Up
       </Button>
+      <div className='modal'>
       <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
         open={open}
         onClose={handleClose}
         closeAfterTransition
@@ -42,24 +41,28 @@ function SignUp() {
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
-            <Typography id="transition-modal-title" variant="h6" component="h2">
-              Welcome back to Jukebox!
+          <Box sx={style} className="modal">
+            <Typography className="signup-head" variant="h6" component="h2">
+              JOIN JUKEBOX
             </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              <form className="login-form">
-                <label>Username:</label>
+            <Typography className="signup" sx={{ mt: 2 }}>
+              <form className="signup-form">
+                <label className="username">Username:</label>
                 <input type="text" />
-                <label>Email:</label>
+                <br/>
+                <label className="email">Email:</label>
                 <input type="text" />
-                <label>Password:</label>
+                <br/>
+                <label className="password">Password:</label>
                 <input type="text" />
-                <input type="submit" value="Submit" />
+                <br/>
+                <input type="submit" value="Sign Up" className="submit"/>
               </form>
             </Typography>
           </Box>
         </Fade>
       </Modal>
+      </div>
     </div>
   );
 }

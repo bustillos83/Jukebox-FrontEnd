@@ -32,8 +32,6 @@ function Login() {
       </Button>
       <div  className="modal">
       <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
         open={open}
         onClose={handleClose}
         closeAfterTransition
@@ -56,8 +54,9 @@ function Login() {
                 <input type="text" />
                 <br/>
                 <input
+                  className="submit"
                   type="submit"
-                  value="Submit"/>
+                  value="Login"/>
               </form>
             </Typography>
           </Box>
