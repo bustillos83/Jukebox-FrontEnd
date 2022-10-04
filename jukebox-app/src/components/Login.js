@@ -3,28 +3,26 @@ import Modal from './Modal'
 import "./Modal.css"
 
 class Login extends Component {
-    constructor(){
-        super()
-        this.state = {
-            show: false
-        };
+    // constructor(){
+    //     super()
+    //     this.state = {
+    //         show: false
+    //     };
         
-    }
+    // }
 
-    showModal = (e) => {
-        this.setState({
-            show: !this.state.show
-        })
-    }
-
-    // onClose = (e) => {
-    //     this.props.onClose && this.props.onClose(e)
+    // showModal = (e) => {
+    //     this.setState({
+    //         show: !this.state.show
+    //     })
     // }
 
   render() {
     return (
       <>
-        <Modal show={this.state.show}>
+      {/* <button onClick={(e) => this.showModal()}>
+            Login</button>
+        <Modal show={this.state.show}> */}
             <form className="login-form">
                 <label>Username/email:</label>
                 <input type="text"/>
@@ -34,9 +32,7 @@ class Login extends Component {
                 onClick={(e) => {this.showModal(e)}}
                 />
             </form>
-        </Modal>
-        <button onClick={(e) => this.showModal()}>
-            Login</button>
+        {/* </Modal> */}
       </>
     );
   }
