@@ -44,15 +44,17 @@ function Login() {
       >
         <Fade in={open}>
           <Box sx={style} className="modal">
-            <Typography id="transition-modal-title" variant="h6" component="h2">
-              Welcome back to Jukebox!
+            <Typography className="login-head" variant="h6" component="h2">
+              WELCOME BACK TO JUKEBOX
             </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+            <Typography className="login" sx={{ mt: 2 }}>
               <form className="login-form">
-                <label>Username/email:</label>
+                <label className="username">Username/email: </label>
                 <input type="text" />
-                <label>Password:</label>
+                <br/>
+                <label className="password">Password: </label>
                 <input type="text" />
+                <br/>
                 <input
                   type="submit"
                   value="Submit"/>

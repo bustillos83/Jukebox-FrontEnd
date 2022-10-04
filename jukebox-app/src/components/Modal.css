@@ -5,12 +5,13 @@
     padding-right: 20px;
 }
 
-Button {
+#login, #signup {
     font-family: 'DynaPuff', cursive !important;
+    font-size: 16px !important;
     color: white !important;
 }
 
-Button:hover {
+#login:hover, #signup:hover {
     color: rgb(9, 9, 193) !important;
     opacity: 90% !important;
 }
@@ -20,4 +21,22 @@ Button:hover {
     font-family: 'DynaPuff', cursive !important;
     display: flex !important;
     flex-direction: column !important;
+}
+
+.login-head {
+    font-size: 28px !important;
+}
+
+.login, .login-head {
+    font-family: 'DynaPuff', cursive !important;
+    text-align: center;
+
+}
+
+label, input {
+    margin: 10px;
+}
+
+.username {
+    margin-left: -50px;
 }
