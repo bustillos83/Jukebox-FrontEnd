@@ -1,0 +1,40 @@
+
+
+.songs-grid{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    padding: 10px;
+    gap: 10px;
+  }
+  .songs-container{
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: left;
+    font-size: 10px;
+    font-family: 'DynaPuff', cursive;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    color: white;
+
+
+  }
+
+
+  button {
+    background-color: white;
+    font-family: 'DynaPuff', cursive;
+    border:1px solid rgb(15, 15, 15);
+    padding: 3px;
+    border-radius: 3px;
+  }
+
+  button:hover {
+    background-color: black;
+    color: white;
+
+  }
