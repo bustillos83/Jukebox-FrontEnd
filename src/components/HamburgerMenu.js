@@ -1,14 +1,13 @@
-
 import './Hamburger.css'
 
-export default function Hamburger() {
+export default function HamburgerMenu({setOpen}) {
     return (
         <>
-            <div className="hamburger">
-                <div className="burger burger1" />
-                <div className="burger burger2" />
-                <div className="burger burger3" />
-            </div>
+            <div className="hamburger-links">
+                <a href="#"> Login </a>
+                <a href="#">|</a>
+                <a href="#"> Register </a>
+                </div>
         </>
     )
 }

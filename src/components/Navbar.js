@@ -2,18 +2,19 @@
 // import React from "react";
 import pic from '../images/juke7.png'
 import "./Navbar.css"
-import Hamburger from "./HamburgerMenu";
-
+import HamburgerMenu from "./HamburgerMenu";
+import Hamburger from 'hamburger-react'
 import React, { useState } from "react";
+
 
 
 
 function Navbar() {
 
-    const [hamburgerOpen, setHamburgerOpen] = useState(false)
+    const [isOpen, setOpen] = useState(false)
     
     const handleClick = () => {
-        setHamburgerOpen(!hamburgerOpen);
+        setOpen(!isOpen);
       };
         return(
         <div className="navbar">
@@ -25,8 +26,18 @@ function Navbar() {
                 <a href="#">|</a>
                 <a href="#"> Register </a>
                 </div>
+                
+                <Hamburger toggled={isOpen} toggle={setOpen} />
                 <div className="hamburger" onClick={handleClick}>
-                <Hamburger  />
+                
+                {!isOpen ? (
+                    console.log("closed")
+                    
+                ) 
+                : (<HamburgerMenu  /> )
+                }
+                
+                
                 </div>
         </div>
            
@@ -38,3 +49,4 @@ function Navbar() {
 
 
 export default Navbar
+
