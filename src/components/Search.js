@@ -30,24 +30,3 @@ export class Search extends Component {
 
 export default Search
 
-
-// <div className="search">
-// <form className="search-bar " onSubmit={this.handleSubmit}>
-//   <Select
-//     className="select-container "
-//     id="searchOption"
-//     options={searchOptions}
-//     onChange={this.handleSelect}
-//   />
-//   <div>
-//     <input
-//       id="musicSearch"
-//       type="text"
-//       placeholder="Search for music..."
-//       value={this.state.musicSearch}
-//       onChange={this.handleChange}
-//     />
-//     <input type="submit" value="Search" />
-//   </div>
-// </form>
-// </div>

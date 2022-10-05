@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import tagsimg from '../images/guitar2.png'
+import trackimg from '../images/track2.png'
 
 
-
-class TopTags extends Component {
+class TopTracks extends Component {
     constructor(props) {
         super(props);
         this.state = {
           baseURL: "http://ws.audioscrobbler.com/2.0/?",
-          method: "method=chart.gettoptags",
+          method: "method=chart.gettoptracks",
           apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=5`,
           tracksURL:"",
           music:{},
@@ -51,15 +50,16 @@ class TopTags extends Component {
     render () {
         // console.log(this.props.music?.tracks?.track?)
         return(
-
             <div className="trending-container">
-            <h1>Trending genre now!</h1>
-            <div className="top-tags">
-                {this.state.music?.tags?.tag?.map((tag, index) => {
+            <h1>Trending music now!</h1>
+            <div className="top-tracks">
+                {this.state.music?.tracks?.track?.map((track, index) => {
                     return (
-                        <div key={index} className="indiv-container-tags" style={{ backgroundImage: `url(${tagsimg})` }}>
-                             <h2>{tag.name}</h2>
-                             <a className="linkTag" href={tag.url}><h3>Find out more</h3></a>
+                        <div key={index} className="indiv-container-tracks" style={{ backgroundImage: `url(${trackimg})` }}>
+                             <h2>{track.name} by {track.artist.name}</h2>
+                             <h3>Playcount: {track.playcount}</h3>
+                             <a href={track.url}><h4>Listen Now</h4></a>
+                             {/* <img src={track.image[3]["#text"]} alt="" /> */}
                         </div>
                     )
 
@@ -72,5 +72,5 @@ class TopTags extends Component {
     }
 }
 
-export default TopTags
+export default TopTracks
 

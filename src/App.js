@@ -152,7 +152,4 @@ class App extends Component {
 
 export default App;
 
-// deleted handleclick method
 
-// test2
-//test test
