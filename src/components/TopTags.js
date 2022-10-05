@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import tagsimg from '../images/guitar2.png'
+
 
 
 class TopTags extends Component {
@@ -49,14 +51,15 @@ class TopTags extends Component {
     render () {
         // console.log(this.props.music?.tracks?.track?)
         return(
-            <div className="top-tracks">
-            <h1>Trending music now!</h1>
-            <div>
+
+            <div className="trending-container">
+            <h1>Trending genre now!</h1>
+            <div className="top-tags">
                 {this.state.music?.tags?.tag?.map((tag, index) => {
                     return (
-                        <div key={index}>
+                        <div key={index} className="indiv-container-tags" style={{ backgroundImage: `url(${tagsimg})` }}>
                              <h2>{tag.name}</h2>
-                             <a href={tag.url}><h3>Find out more</h3></a>
+                             <a className="linkTag" href={tag.url}><h3>Find out more</h3></a>
                         </div>
                     )
 

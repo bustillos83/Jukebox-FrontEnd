@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import trackimg from '../images/track2.png'
 
 
 class TopTracks extends Component {
@@ -49,12 +50,12 @@ class TopTracks extends Component {
     render () {
         // console.log(this.props.music?.tracks?.track?)
         return(
-            <div className="top-tracks">
+            <div className="trending-container">
             <h1>Trending music now!</h1>
-            <div>
+            <div className="top-tracks">
                 {this.state.music?.tracks?.track?.map((track, index) => {
                     return (
-                        <div key={index}>
+                        <div key={index} className="indiv-container-tracks" style={{ backgroundImage: `url(${trackimg})` }}>
                              <h2>{track.name} by {track.artist.name}</h2>
                              <h3>Playcount: {track.playcount}</h3>
                              <a href={track.url}><h4>Listen Now</h4></a>

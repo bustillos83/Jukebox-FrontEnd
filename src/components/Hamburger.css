@@ -1,4 +1,4 @@
-.hamburger {
+.hamburger{
     width: 2rem;
     height: 2rem;
     display: flex;
@@ -11,18 +11,19 @@
     width: 2rem;
     height: 0.25rem;
     border-radius: 10px;
-    background-color: rgb(235, 224, 224);
+    background-color: rgb(227, 223, 223);
     transform-origin: 1px;
     transition: all 0.3s linear;
-  
+    color: white;
 }
 
-.hamburger {
-    display: none;
+.hamburger{
+    /* display: none; */
 }
-@media (max-width: 769px) {
-    .hamburger {
-        display: inline;
+
+@media (max-width: 767px) {
+    .hamburger{
+        display: fixed;
         padding-top: 10px;
         margin-left: 10px;
         z-index: 10;

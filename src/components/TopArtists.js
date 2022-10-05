@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import artistimg from '../images/maybeartist.jpg'
 
 
 class TopArtists extends Component {
@@ -49,22 +50,24 @@ class TopArtists extends Component {
     render () {
         // console.log(this.props.music?.tracks?.track?)
         return(
-            <div className="top-tracks">
-            <h1>Trending music now!</h1>
-            <div>
+          <div className="trending-container">
+            <h1>Trending Artist now!</h1>
+            <div className="top-artist">
                 {this.state.music?.artists?.artist?.map((track, index) => {
                     return (
-                        <div key={index}>
+                        <div key={index} className="indiv-container-artist" style={{ backgroundImage: `url(${artistimg})` }}>
+                        <div className="artist-info">
                              <h2>{track.name}</h2>
-                             <h3>{track.playcount}</h3>
-                             <img src={track.image[3]["#text"]} alt="" />
+                             <h3>Playcount: {track.playcount}</h3>
+                          </div>
                         </div>
                     )
 
                 }
             )}
             </div>
-            </div>
+          </div>
+          
             
         )
     }

@@ -55,15 +55,7 @@ input[type=submit] {
   border-radius: 5px;
 }
 
-.top-tracks {
-  font-family: 'DynaPuff', cursive;
-}
 
-.tracks-div {
-  width:300px;
-  height: 300px;
-  border: 2px solid red;
-}
 
 
 @media only screen and (max-device-width: 667px) {
@@ -73,9 +65,106 @@ input[type=submit] {
 
 /* === TRENDING NOW STYLING === */
 
+
 .trending-now {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  /* align-items: center; */
+  font-family: 'DynaPuff', cursive;
 }
 
+.top-tracks{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  /* border: 3px solid blue; */
+  gap: 10px;
+}
+
+.trending-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid red; */
+ 
+}
+
+.indiv-container-tracks{
+  /* border: 3px solid green; */
+  margin-left: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 300px;
+  height: 250px;
+  color: rgb(255, 255, 255);
+  font-size: 10px;
+  transition: all .2s ease-in-out;
+  border-radius: 8px;
+}
+.indiv-container-tracks:hover {
+  transform: scale(1.1); 
+}
+.indiv-container-artist {
+  margin-left: 20px;
+  /* border: 2px solid rgb(255, 0, 251); */
+  /* width: 300px;
+  height: 250px; */
+  font-size: 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  
+}
+
+.indiv-container-artist:hover{
+  box-shadow: rgba(143, 93, 181, 0.25) 0px 6px 12px -2px, rgba(146, 93, 198, 0.3) 0px 3px 7px -3px;
+}
+.top-tags{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.top-artist{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.artist-info{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.indiv-container-tags{
+  margin-left: 20px;
+  color: rgb(247, 241, 241);
+  width: 200px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.linkTag{
+  color: #54b3d6;
+  transition: color .3s ease-in-out;
+}
+
+.linkTag:hover {
+  color: #fff;
+  box-shadow: inset 200px 0 0 0 #54b3d6;;
+  text-decoration: underline;
+}

@@ -1,13 +1,16 @@
 
-
-.songs-grid{
+.artist-grid{
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 33% 33% 33%;
     padding: 10px;
     gap: 10px;
+    min-width: 0;
+    min-height: 0;
   }
-  .songs-container{
+  .artist-container{
+    display: flex;
+    flex-direction: column;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -19,22 +22,7 @@
     background-position: center;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 5px;
-    color: white;
+    color: rgb(12, 12, 12);
 
-
-  }
-
-
-  button {
-    background-color: white;
-    font-family: 'DynaPuff', cursive;
-    border:1px solid rgb(15, 15, 15);
-    padding: 3px;
-    border-radius: 3px;
-  }
-
-  button:hover {
-    background-color: black;
-    color: white;
 
   }

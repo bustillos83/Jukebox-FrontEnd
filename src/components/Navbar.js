@@ -1,10 +1,14 @@
-import React from "react";
-import pic from '../images/juke8.png'
+
+// import React from "react";
+import pic from '../images/juke7.png'
 import "./Navbar.css"
 import Login from './Login'
 import SignUp from './SignUp'
 import Hamburger from "./HamburgerMenu";
-import  { useState } from "react"
+
+import React, { useState } from "react";
+
+
 
 function Navbar() {
 
@@ -14,8 +18,8 @@ function Navbar() {
         setHamburgerOpen(!hamburgerOpen);
       };
         return(
-            <>
-            <div className="navbar">
+        <div className="navbar">
+
             <img src={pic}/>
                 <h1>Welcome to Jukebox </h1>
                 <div className="links-container">
@@ -23,10 +27,11 @@ function Navbar() {
                 <SignUp/>
                 </div>
                 <div className="hamburger" onClick={handleClick}>
-                    <Hamburger />
+                <Hamburger  />
                 </div>
-            </div>
-            </>
+        </div>
+           
+
         )
     }
 
