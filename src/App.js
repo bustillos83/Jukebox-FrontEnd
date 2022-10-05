@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { findDOMNode, render, unmountComponentAtNode } from 'react-dom'
 // === IMPORT COMPONENTS === //
 import Search from "./components/Search";
 import Album from "./components/Album";
@@ -32,7 +31,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      baseURL: "http://ws.audioscrobbler.com/2.0/?",
+      baseURL: "https://ws.audioscrobbler.com/2.0/?",
       searchOption: "",
       method: "",
       apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=12`,
@@ -152,4 +151,4 @@ class App extends Component {
 
 export default App;
 
-
+// need this for commit
