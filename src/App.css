@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+
+.App {
+  text-align: center;
+}
+
+
+
+.search {
+  display: flex;
+  justify-content: center;
+
+}
+.search-bar {
+  /* border: 1px solid grey; */
+  margin-top: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+ 
+}
+
+
+
+.select-container {
+  width: 100px;
+  
+  
+}
+.css-1s2u09g-control {
+  
+}
+
+#musicSearch{
+  width: 400px;
+  height: 34px;
+  margin-left: 20px;
+  margin-right: 10px;
+  border: 1px solid #7e7c7c;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+input[type=text]:focus {
+ 
+}
+input[type=submit] {
+  height: 38px;
+  background: #ffffff;
+  border: 1px solid rgb(26, 25, 25);
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.top-tracks {
+  font-family: 'DynaPuff', cursive;
+}
+
+.tracks-div {
+  width:300px;
+  height: 300px;
+  border: 2px solid red;
+}
+
+
+@media only screen and (max-device-width: 667px) {
+  
+}
+
+
+/* === TRENDING NOW STYLING === */
+
+.trending-now {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
