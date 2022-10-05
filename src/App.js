@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { findDOMNode, render, unmountComponentAtNode } from 'react-dom'
 // === IMPORT COMPONENTS === //
 import Search from "./components/Search";
 import Album from "./components/Album";
@@ -152,4 +151,4 @@ class App extends Component {
 
 export default App;
 
-//test
+// need this for commit

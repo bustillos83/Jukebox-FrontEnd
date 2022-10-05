@@ -1,5 +1,4 @@
-
-import React, { Component } from "react";
+import React from "react";
 import "./Modal.css"
 // MATERIAL UI COMPONENTS
 import Backdrop from "@mui/material/Backdrop";
@@ -21,17 +20,17 @@ const style = {
   p: 4,
 };
 
-function Login() {
+function SignUp() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button id="login" onClick={handleOpen}>
-        Login
+      <Button id="signup" onClick={handleOpen}>
+        Sign Up
       </Button>
-      <div  className="modal">
+      <div className='modal'>
       <Modal
         open={open}
         onClose={handleClose}
@@ -43,21 +42,21 @@ function Login() {
       >
         <Fade in={open}>
           <Box sx={style} className="modal">
-            <Typography className="login-head" variant="h6" component="h2">
-              WELCOME BACK TO JUKEBOX
+            <Typography className="signup-head" variant="h6" component="h2">
+              JOIN JUKEBOX
             </Typography>
-            <Typography className="login" sx={{ mt: 2 }}>
-              <form className="login-form">
-                <label className="username">Username/email: </label>
+            <Typography className="signup" sx={{ mt: 2 }}>
+              <form className="signup-form">
+                <label className="username">Username:</label>
                 <input type="text" />
                 <br/>
-                <label className="password">Password: </label>
+                <label className="email">Email:</label>
                 <input type="text" />
                 <br/>
-                <input
-                  className="submit"
-                  type="submit"
-                  value="Login"/>
+                <label className="password">Password:</label>
+                <input type="text" />
+                <br/>
+                <input type="submit" value="Sign Up" className="submit"/>
               </form>
             </Typography>
           </Box>
@@ -68,4 +67,6 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;
+
+
