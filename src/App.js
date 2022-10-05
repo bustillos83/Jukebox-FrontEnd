@@ -10,7 +10,16 @@ import TopArtists from "./components/TopArtists";
 import TopTags from "./components/TopTags";
 import "./App.css";
 
+let baseURL = process.env.REACT_APP_BACKEND_URL;
 
+// if (process.env.NODE_ENV === "development") {
+//   baseURL = "http://localhost:3003";
+// } else {
+//   baseURL = process.env.REACT_APP_BACKEND_URL;
+// }
+// console.log("current base url: ", baseURL);
+
+console.log("current base url: ", baseURL);
 
 const searchOptions = [
   { label: "Artist", value: "artist" },
@@ -32,6 +41,7 @@ class App extends Component {
   }
 
   handleSelect = (option) => {
+    // console.log("searchOption:", this.state.searchOption)
     if (option === searchOptions[0]) {
       this.setState({
         ...this.state,
@@ -113,7 +123,9 @@ class App extends Component {
         />
         <div className="trending-now">
           <div className="top-tracks">{!this.state.music && <TopTracks />}</div>
-          <div className="top-artists">{!this.state.music && <TopArtists />}</div>
+          <div className="top-artists">
+            {!this.state.music && <TopArtists />}
+          </div>
           <div className="top-tags">{!this.state.music && <TopTags />}</div>
         </div>
 
