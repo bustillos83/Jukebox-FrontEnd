@@ -36,7 +36,6 @@ class TopTracks extends Component {
                     music: { ...json },
                   });
                 },
-    
                 (err) => console.log(err)
               );
           }
