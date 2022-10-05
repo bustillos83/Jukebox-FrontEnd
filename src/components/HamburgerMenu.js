@@ -1,3 +1,4 @@
+
 import './Hamburger.css'
 export default function Hamburger() {
     return (
@@ -10,3 +11,4 @@ export default function Hamburger() {
         </>
     )
 }
+

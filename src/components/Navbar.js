@@ -1,9 +1,11 @@
+
 // import React from "react";
 import pic from '../images/juke7.png'
 import "./Navbar.css"
 import Hamburger from "./HamburgerMenu";
 
 import React, { useState } from "react";
+
 
 
 function Navbar() {
@@ -15,6 +17,7 @@ function Navbar() {
       };
         return(
         <div className="navbar">
+
             <img src={pic}/>
                 <h1>Welcome to Jukebox </h1>
                 <div className="links-container">
@@ -27,6 +30,7 @@ function Navbar() {
                 </div>
         </div>
            
+
         )
     }
 

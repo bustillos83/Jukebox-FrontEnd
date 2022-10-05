@@ -6,11 +6,21 @@ import Album from "./components/Album";
 import Artist from "./components/Artist";
 import Song from "./Song";
 import Navbar from "./components/Navbar";
-import TopTracks from "./components/Toptracks";
+import TopTracks from "./components/TopTracks";
 import TopArtists from "./components/TopArtists";
 import TopTags from "./components/TopTags";
-
 import "./App.css";
+
+let baseURL = process.env.REACT_APP_BACKEND_URL;
+
+// if (process.env.NODE_ENV === "development") {
+//   baseURL = "http://localhost:3003";
+// } else {
+//   baseURL = process.env.REACT_APP_BACKEND_URL;
+// }
+// console.log("current base url: ", baseURL);
+
+console.log("current base url: ", baseURL);
 
 const searchOptions = [
   { label: "Artist", value: "artist" },
@@ -142,7 +152,4 @@ class App extends Component {
 
 export default App;
 
-// deleted handleclick method
 
-// test2
-//test test

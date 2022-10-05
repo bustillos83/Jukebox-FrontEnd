@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import tagsimg from '../images/guitar2.png'
 
 
+
 class TopTags extends Component {
     constructor(props) {
         super(props);
@@ -50,6 +51,7 @@ class TopTags extends Component {
     render () {
         // console.log(this.props.music?.tracks?.track?)
         return(
+
             <div className="trending-container">
             <h1>Trending genre now!</h1>
             <div className="top-tags">
