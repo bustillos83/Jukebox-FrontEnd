@@ -8,7 +8,7 @@
 #login, #signup {
     font-family: 'DynaPuff', cursive !important;
     font-size: 16px !important;
-    color: white !important;
+    color: white ;
 }
 
 #login:hover, #signup:hover {

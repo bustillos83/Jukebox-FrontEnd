@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import trackimg from "../images/track2.png";
+import "../App.css"
 
 class TopTracks extends Component {
   constructor(props) {
@@ -60,7 +61,7 @@ class TopTracks extends Component {
                 </h2>
                 <h3>Playcount: {track.playcount}</h3>
                 <a href={track.url}>
-                  <h4>Listen Now</h4>
+                  <button className="tracks-button">Listen Now</button>
                 </a>
                 {/* <img src={track.image[3]["#text"]} alt="" /> */}
               </div>

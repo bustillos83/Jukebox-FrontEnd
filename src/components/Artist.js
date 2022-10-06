@@ -14,10 +14,13 @@ class Artist extends Component {
         {this.props.music?.topalbums?.album?.map((data, index) => {
           return (
             <div className="artist-container" key={index}>
-
+            <img src={data.image[3]["#text"]} alt="" /> 
+            
               <h2>
-                <img src={data.image[3]["#text"]} alt="" /> {data.name}
+                {data.name}
               </h2>
+            <h3> Listen<a href={data.url}></a></h3>
+              
             </div>
           );
         })}

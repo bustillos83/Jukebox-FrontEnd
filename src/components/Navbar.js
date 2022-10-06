@@ -24,14 +24,20 @@ function Navbar() {
         <div className="navbar">
 
             <img src={pic}/>
-                <h1>Welcome to Jukebox </h1>
-                <div className="links-container">
+                <h1>Jukebox </h1>
+               
+                <div className='login-modal'>
                 <Login/>
-                <SignUp/>
                 </div>
                 
+                <div className='signup-modal'>
+                <SignUp/>
+                </div>
+              
+                <div className='hamburgerIcon' onClick={handleClick}>
                 <Hamburger toggled={isOpen} toggle={setOpen} />
-                <div className="hamburger" onClick={handleClick}>
+                </div>
+                <div className="hamburger" >
                 
                 {!isOpen ? (
                     console.log("closed")
