@@ -22,7 +22,7 @@ class Album extends Component {
                     <h2>{albums.name}</h2>
                   </a>
                   {/* artist name will direct user to last.fm artist page */}
-                  <a href={`https://www.last.fm/music/${albums.artist}`}>
+                  <a target="_blank" href={`https://www.last.fm/music/${albums.artist}`}>
                     <h3>{albums.artist}</h3>
                   </a>
                 </div>

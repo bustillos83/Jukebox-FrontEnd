@@ -56,7 +56,7 @@ class TopTags extends Component {
                 style={{ backgroundImage: `url(${tagsimg})` }}
               >
                 <h2>{tag.name}</h2>
-                <a className="linkTag" href={tag.url}>
+                <a target="_blank" className="linkTag" href={tag.url}>
                   <h3>Find out more</h3>
                 </a>
               </div>

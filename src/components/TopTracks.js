@@ -60,7 +60,7 @@ class TopTracks extends Component {
                   {track.name} by {track.artist.name}
                 </h2>
                 <h3>Playcount: {track.playcount}</h3>
-                <a href={track.url}>
+                <a target="_blank" href={track.url}>
                   <button className="tracks-button">Listen Now</button>
                 </a>
                 {/* <img src={track.image[3]["#text"]} alt="" /> */}
