@@ -19,7 +19,7 @@ class Artist extends Component {
               <h2>
                 {data.name}
               </h2>
-            <a target="_blank" href={data.url}>Listen</a>
+            <a className="artist-tag" target="_blank" href={data.url}>Listen</a>
               
             </div>
           );

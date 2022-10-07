@@ -17,14 +17,13 @@ class Album extends Component {
               return (
                 <div key={index} className="album-container">
                   {/* img and album name will direct user to last.fm album page */}
-                  <a href={albums.url}>
+                  <a target="_blank" href={albums.url}>
                     <img className="album-image" src={albums.image[2]["#text"]} alt={albums.name} />
-                    <h2>{albums.name}</h2>
+                    <h3>{albums.name}</h3>
                   </a>
                   {/* artist name will direct user to last.fm artist page */}
-                  <a target="_blank" href={`https://www.last.fm/music/${albums.artist}`}>
-                    <h3>{albums.artist}</h3>
-                  </a>
+                  <a className="album-tag" target="_blank" href={`https://www.last.fm/music/${albums.artist}`}>{albums.artist}</a>
+                  
                 </div>
               );
             }
