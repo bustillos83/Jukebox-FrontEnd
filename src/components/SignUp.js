@@ -1,72 +1,45 @@
 import React from "react";
-import "./Modal.css"
-// MATERIAL UI COMPONENTS
-import Backdrop from "@mui/material/Backdrop";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
-function SignUp() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+export default function SignUp() {
+  const signUp = (e) => {
+    e.preventDefault();
+    fetch(process.env.REACT_APP_BACKEND_URL + "/users/signup", {
+      method: "POST",
+      body: JSON.stringify({
+        username: e.target.username.value,
+        email: e.target.email.value,
+        password: e.target.password.value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((resJson) => {
+        // console.log(resJson);
+      });
+  };
 
   return (
     <div>
-      <Button id="signup" onClick={handleOpen}>
-        Sign Up
-      </Button>
-      <div className='modal'>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <Box sx={style} className="modal">
-            <Typography className="signup-head" variant="h6" component="h2">
-              JOIN JUKEBOX
-            </Typography>
-            <Typography className="signup" sx={{ mt: 2 }}>
-              <form className="signup-form">
-                <label className="username">Username:</label>
-                <input type="text" />
-                <br/>
-                <label className="email">Email:</label>
-                <input type="text" />
-                <br/>
-                <label className="password">Password:</label>
-                <input type="text" />
-                <br/>
-                <input type="submit" value="Sign Up" className="submit"/>
-              </form>
-            </Typography>
-          </Box>
-        </Fade>
-      </Modal>
-      </div>
+      <form component={"div"} onSubmit={signUp} className="signup-form">
+        <label className="username" htmlFor="username">
+          Username:
+        </label>
+        <input type="text" id="username" name="username" />
+        <br />
+        <label className="email" htmlFor="email">
+          Email:
+        </label>
+        <input type="text" id="email" name="email" />
+        <br />
+        <label className="password" htmlFor="password">
+          Password:
+        </label>
+        <input type="password" id="password" name="password" />
+        <br />
+        <input type="submit" value="Sign Up" className="submit" />
+      </form>
     </div>
   );
 }
-
-export default SignUp;
-
-
