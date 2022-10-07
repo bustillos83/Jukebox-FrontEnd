@@ -1,19 +1,4 @@
-
-.artist-grid{
-    /* display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center; */
-    padding: 10px;
-    gap: 10px;
-    min-width: 0;
-    min-height: 0;
-  }
   .artist-container{
-    /* display: flex;
-    flex-direction: column; */
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: left;
@@ -22,29 +7,89 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 5px;
     color: rgb(12, 12, 12);
-
-
   }
 
   img{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    /* width: 200px;
-    height: 250px; */
   }
-/* 
-  h3{
-    color: black;
-    font-size: 22px;
-  } */
 
   /* ========= TABLET ===================== */
 
-@media (min-width: 600px) {}
+@media (min-width: 600px) {
+   
+    .artist-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .artist-container{
+        width: 300px;
+        height: 300px;
+        margin-left: 40px;
+        background-color: black;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    .artist-image{
+        width: 300px;
+        height: 250px;
+    }
+}
 
   /* =============== MOBILE =================== */
-@media (max-width: 600px) {}
+@media (max-width: 600px) {
+    h1{
+        
+    }
 
-/* ============= DESKTOP =============== */
-  @media (min-width: 922px) {}
+    .artist-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .artist-container{
+        width: 300px;
+        height: 300px;
+        margin-left: 40px;
+        background-color: black;
+        color: white;
+        margin-bottom: 10px;
+        
+    }
+
+    .artist-image{
+        width: 300px;
+        height: 250px;
+    }
+
+}
+
+/* ============= DESKTOP =============== */ 
+  @media (min-width: 922px) {
+    .artist-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        place-items: center;
+       
+    }
+
+    .artist-container{
+        width: 300px;
+        height: 300px;
+        margin-left: 40px;
+        background-color: black;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    .artist-image{
+        width: 300px;
+        height: 250px;
+    }
+  }

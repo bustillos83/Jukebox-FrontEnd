@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './Artist.css'
 
+
 class Artist extends Component {
   render() {
     // console.log(this.props.music.topalbums.album);
@@ -13,7 +14,7 @@ class Artist extends Component {
         {this.props.music?.topalbums?.album?.map((data, index) => {
           return (
             <div className="artist-container" key={index}>
-            <img src={data.image[3]["#text"]} alt="" /> 
+            <img className="artist-image" src={data.image[3]["#text"]} alt="" /> 
             
               <h2>
                 {data.name}
