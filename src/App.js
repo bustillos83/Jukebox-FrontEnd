@@ -121,7 +121,7 @@ class App extends Component {
           handleSelect={this.handleSelect}
           musicSearch={this.state.musicSearch}
         />
-        <div >
+        <div className="top-container" >
           <div>{!this.state.music && <TopTracks />}</div>
           <div>
             {!this.state.music && <TopArtists />}

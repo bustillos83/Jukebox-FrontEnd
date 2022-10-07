@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import './Artist.css'
 
 class Artist extends Component {
@@ -19,7 +18,7 @@ class Artist extends Component {
               <h2>
                 {data.name}
               </h2>
-            <h3> Listen<a href={data.url}></a></h3>
+            <a href={data.url}>Listen</a>
               
             </div>
           );

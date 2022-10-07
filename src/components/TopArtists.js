@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import artistimg from "../images/maybeartist.jpg";
+import "../App.css"
 
 class TopArtists extends Component {
   constructor(props) {

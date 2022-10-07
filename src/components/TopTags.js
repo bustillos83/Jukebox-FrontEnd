@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import tagsimg from "../images/guitar2.png";
-
+import "../App.css"
 class TopTags extends Component {
   constructor(props) {
     super(props);
