@@ -8,7 +8,7 @@ class Song extends Component {
     // console.log(this.props.music.results.trackmatches);
     return (
        <>
-        <h1>Songs</h1>
+        <h1>Songs search results...</h1>
       
         <div className="songs-grid">
         

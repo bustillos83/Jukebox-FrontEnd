@@ -9,7 +9,7 @@ class Artist extends Component {
     return (
 
       <>
-        <h1>Artist</h1>
+        <h1>Artist search results...</h1>
         <div className="artist-grid">
         {this.props.music?.topalbums?.album?.map((data, index) => {
           return (
