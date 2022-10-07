@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 // === IMPORT COMPONENTS === //
 import Search from "./components/Search";
 import Homepage from "./components/Homepage"
@@ -105,15 +106,19 @@ class App extends Component {
     this.performSearch();
   };
 
-  
+  redirectHome = () => {
+    this.setState({
+      music: ""
+    })
+    return <Redirect to="/"/>
+  }
 
   render() {
-    console.log("THIS IS THE STATE IN RENDER:", this.state);
-    // console.log("searchOption:", this.state.searchOption)
-    // console.log("method:", this.state.method);
     return (
+      <Router>
       <div>
-        <Navbar/>
+        
+        <Navbar redirectHome={this.redirectHome}/>
         <Search
           searchOptions={searchOptions}
           handleSubmit={this.handleSubmit}
@@ -122,8 +127,12 @@ class App extends Component {
           musicSearch={this.state.musicSearch}
         />
         
-        <Homepage musicState={this.state.music}/>
-     
+         {/* do we need the switch component if we don't have other routes? */}
+         <Switch>
+            <Route exact path="/">
+            {!this.state.music && <Homepage/>}
+            </Route>
+          </Switch>
 
         {this.state.music && this.state.searchOption === "album" && (
           <Album music={this.state.music} />
@@ -141,10 +150,10 @@ class App extends Component {
           ""
         )}
       </div>
+         
+      </Router>
     );
   }
 }
 
 export default App;
-
-// need this for commit
