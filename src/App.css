@@ -180,6 +180,11 @@ h1{
   text-decoration: underline;
 }
 
+.css-319lph-ValueContainer, .css-319lph-ValueContainer{
+  font-size: 13px;
+}
+
+
 /* ========= TABLET ===================== */
 
 @media (max-width: 768px) {

@@ -85,12 +85,12 @@ class App extends Component {
 
       () => {
         // fetch request will go here
-        console.log("hi im inside this function");
+        // console.log("hi im inside this function");
         fetch(this.state.searchURL)
           .then((response) => response.json())
           .then(
             (json) => {
-              console.log(json, "this is the json");
+              // console.log(json, "this is the json");
               this.setState({
                 ...this.state,
                 music: { ...json },
@@ -136,6 +136,12 @@ class App extends Component {
 
 
   // function to create a favorite 
+  addFavorite = (favorite) => {
+    const copyFavorites = [...this.state.favorites]
+    copyFavorites.unshift(favorite)
+    this.setState({ favorites: copyFavorites })
+  }
+
 
   // function to delete a favorite
 
@@ -160,7 +166,9 @@ class App extends Component {
             <Route exact path="/" element={!this.state.music && <Homepage/>}>
             </Route>
             <Route path="/favorites" element={<Favorites 
-              getFavorites={this.getFavorites}/>}>
+              getFavorites={this.getFavorites}
+              addFavorite={this.addFavorite}
+              />}>
             
              </Route> 
              </Routes>
