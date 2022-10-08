@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 // === IMPORT COMPONENTS === //
 import Search from "./components/Search";
-import Homepage from "./components/Homepage"
+import Homepage from "./components/Homepage";
 import Album from "./components/Album";
 import Artist from "./components/Artist";
 import Song from "./Song";
 import Navbar from "./components/Navbar";
-import Favorites from "./components/Favorites"
+import Favorites from "./components/Favorites";
 import "./App.css";
 
 let baseURL = process.env.REACT_APP_BACKEND_URL;
@@ -28,7 +28,7 @@ class App extends Component {
       apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=12`,
       musicSearch: "",
       searchURL: "",
-      favorites: []
+      favorites: [],
     };
   }
 
@@ -100,13 +100,13 @@ class App extends Component {
   };
 
   goHome = () => {
-    console.log("go home")
+    console.log("go home");
     this.setState({
-      music: ""
-    })
-  }
+      music: "",
+    });
+  };
 
-  // add function to get (READ) favorites list here 
+  // add function to get (READ) favorites list here
   getFavorites = () => {
     fetch(baseURL + "/faves")
     .then((res) => {
@@ -169,8 +169,6 @@ class App extends Component {
 				this.setState({ favorites: copyFavorites });
 			});
   }
-
-
 
   render() {
     return (

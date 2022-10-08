@@ -6,7 +6,7 @@ function Footer() {
         <div className="footer-wrapper">
         <div className="footer">
             &copy; Jukebox-React-App 2022 created by  
-            <a target="_blank" href="https://github.com/angeeg"> Anastasiia</a>, 
+            <a target="_blank" href="https://github.com/nkolesnyk9"> Anastasiia</a>, 
             <a target="_blank" href="https://github.com/bustillos83"> Fernando</a>, 
             <a target="_blank" href="https://github.com/angeeg"> Angeleena </a> 
             Courtesy of 
