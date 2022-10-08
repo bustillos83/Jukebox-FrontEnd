@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import {FaTrashAlt} from "react-icons/fa"
 import FavoriteForm from "./FavoriteForm"
+import Footer from "./Footer"
+import "../App.css"
 import "./Favorites.css";
 
 // create edit form component - when user clicks on edit a small form pops up under the favorite item on the list
@@ -114,7 +116,7 @@ export class Favorites extends Component {
           </table>
         </div>
         
-
+        <Footer/>
       </div>
     );
   }

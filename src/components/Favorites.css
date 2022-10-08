@@ -85,3 +85,14 @@ tr {
     text-transform: uppercase;
    
 }
+
+@media (max-width: 600px){
+    h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .table-div {
+        width: 75%;
+        font-size: 10px;
+    }
+}
