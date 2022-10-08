@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // === IMPORT COMPONENTS === //
 import Search from "./components/Search";
-import Homepage from "./components/Homepage"
+import Homepage from "./components/Homepage";
 import Album from "./components/Album";
 import Artist from "./components/Artist";
 import Song from "./Song";
 import Navbar from "./components/Navbar";
-import Favorites from "./components/Favorites"
+import Favorites from "./components/Favorites";
 import "./App.css";
 
 let baseURL = process.env.REACT_APP_BACKEND_URL;
@@ -37,7 +37,7 @@ class App extends Component {
       apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=12`,
       musicSearch: "",
       searchURL: "",
-      favorites: []
+      favorites: [],
     };
   }
 
@@ -109,87 +109,76 @@ class App extends Component {
   };
 
   goHome = () => {
-    console.log("go home")
+    console.log("go home");
     this.setState({
-      music: ""
-    })
-  }
+      music: "",
+    });
+  };
 
-  // add function to get (READ) favorites list here 
+  // add function to get (READ) favorites list here
   getFavorites = () => {
     fetch(baseURL + "/faves")
-    .then((res) => {
-      if(res.status === 200) {
-        return res.json()
-      } else {
-        return []
-      }
-    })
-    .then((data) => {
-      if (data === []){
-        this.setState({ favorites: data })
-      } else {
-        this.setState({ favorites: data.favorites })
-      }
-    })
-  }
+      .then((res) => {
+        if (res.status === 200) {
+          return res.json();
+        } else {
+          return [];
+        }
+      })
+      .then((data) => {
+        if (data === []) {
+          this.setState({ favorites: data });
+        } else {
+          this.setState({ favorites: data.favorites });
+        }
+      });
+  };
 
-  // will need to redirect user to favorite component
-  goToFavorites = () => {
-    console.log("go to favorites");
-    
-    return <Redirect to="/favorites"/>
-  }
-
-  // function to create a favorite 
+  // function to create a favorite
 
   // function to delete a favorite
 
   // function to update a favorite
 
-
-
   render() {
     return (
       <Router>
-      <div>
-        <Navbar goHome={this.goHome} goToFavorites={this.goToFavorites}/>
-        <Search
-          searchOptions={searchOptions}
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          handleSelect={this.handleSelect}
-          musicSearch={this.state.musicSearch}
-        />
-        
-         {/* do we need the switch component if we don't have other routes? */}
-         <Switch>
-            <Route exact path="/">
-            {!this.state.music && <Homepage/>}
+        <div>
+          <Navbar goHome={this.goHome} />
+          <Search
+            searchOptions={searchOptions}
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            handleSelect={this.handleSelect}
+            musicSearch={this.state.musicSearch}
+          />
+
+          <Routes>
+            <Route exact path="/" element={!this.state.music && <Homepage />}>
+              {/* {!this.state.music && <Homepage/>} */}
             </Route>
-            <Route path="/favorites">
-              <Favorites 
-              getFavorites={this.getFavorites}/>
-             </Route> 
-             </Switch>
+            <Route
+              path="/favorites"
+              element={<Favorites getFavorites={this.getFavorites} />}
+            ></Route>
+          </Routes>
 
-        {this.state.music && this.state.searchOption === "album" && (
-          <Album music={this.state.music} />
-        )}
+          {this.state.music && this.state.searchOption === "album" && (
+            <Album music={this.state.music} />
+          )}
 
-        {this.state.music && this.state.searchOption === "artist" ? (
-          <Artist music={this.state.music} />
-        ) : (
-          ""
-        )}
+          {this.state.music && this.state.searchOption === "artist" ? (
+            <Artist music={this.state.music} />
+          ) : (
+            ""
+          )}
 
-        {this.state.music && this.state.searchOption === "track" ? (
-          <Song music={this.state.music} />
-        ) : (
-          ""
-        )}
-      </div>
-         
+          {this.state.music && this.state.searchOption === "track" ? (
+            <Song music={this.state.music} />
+          ) : (
+            ""
+          )}
+        </div>
       </Router>
     );
   }
