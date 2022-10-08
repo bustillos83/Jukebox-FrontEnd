@@ -32,19 +32,10 @@
   .hamburger{
     position: absolute;
     right: 0;
-    /* height: calc(100vh - 100px); */
-    
-
+    top: 100px;
   }
 
  
-  
-  @media (max-width: 767px) {
-    .links-container{
-        display: none;
-       
-    }
-  }
 
  
 

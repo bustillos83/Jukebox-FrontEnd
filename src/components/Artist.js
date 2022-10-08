@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
 import './Artist.css'
+
 
 class Artist extends Component {
   render() {
@@ -9,15 +9,18 @@ class Artist extends Component {
     return (
 
       <>
-        <h1>Artist</h1>
+        <h1>Artist search results...</h1>
         <div className="artist-grid">
         {this.props.music?.topalbums?.album?.map((data, index) => {
           return (
             <div className="artist-container" key={index}>
-
+            <img className="artist-image" src={data.image[3]["#text"]} alt="" /> 
+            
               <h2>
-                <img src={data.image[3]["#text"]} alt="" /> {data.name}
+                {data.name}
               </h2>
+            <a className="artist-tag" target="_blank" href={data.url}>Listen</a>
+              
             </div>
           );
         })}

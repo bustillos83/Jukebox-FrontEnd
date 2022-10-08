@@ -121,12 +121,12 @@ class App extends Component {
           handleSelect={this.handleSelect}
           musicSearch={this.state.musicSearch}
         />
-        <div className="trending-now">
-          <div className="top-tracks">{!this.state.music && <TopTracks />}</div>
-          <div className="top-artists">
+        <div className="top-container" >
+          <div>{!this.state.music && <TopTracks />}</div>
+          <div>
             {!this.state.music && <TopArtists />}
           </div>
-          <div className="top-tags">{!this.state.music && <TopTags />}</div>
+          <div>{!this.state.music && <TopTags />}</div>
         </div>
 
         {this.state.music && this.state.searchOption === "album" && (

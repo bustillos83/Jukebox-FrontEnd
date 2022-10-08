@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import tagsimg from "../images/guitar2.png";
-
+import "../App.css"
 class TopTags extends Component {
   constructor(props) {
     super(props);
     this.state = {
       baseURL: "https://ws.audioscrobbler.com/2.0/?",
       method: "method=chart.gettoptags",
-      apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=5`,
+      apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=6`,
       tracksURL: "",
       music: {},
     };
@@ -56,7 +56,7 @@ class TopTags extends Component {
                 style={{ backgroundImage: `url(${tagsimg})` }}
               >
                 <h2>{tag.name}</h2>
-                <a className="linkTag" href={tag.url}>
+                <a target="_blank" className="linkTag" href={tag.url}>
                   <h3>Find out more</h3>
                 </a>
               </div>

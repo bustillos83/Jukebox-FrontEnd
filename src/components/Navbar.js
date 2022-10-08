@@ -23,12 +23,38 @@ function Navbar() {
         <SignUpModel />
       </div>
 
-      <Hamburger toggled={isOpen} toggle={setOpen} />
-      <div className="hamburger" onClick={handleClick}>
-        {!isOpen ? console.log("closed") : <HamburgerMenu />}
-      </div>
-    </div>
-  );
-}
+            <img src={pic}/>
+                <h1>Jukebox </h1>
+               
+                <div className='login-modal'>
+                <Login/>
+                </div>
+                
+                <div className='signup-modal'>
+                <SignUp/>
+                </div>
+              
+                <div className='hamburgerIcon' onClick={handleClick}>
+                <Hamburger toggled={isOpen} toggle={setOpen} />
+                </div>
+                <div className="hamburger" >
+                
+                {!isOpen ? (
+                    console.log("closed")
+                    
+                ) 
+                : (<HamburgerMenu  /> )
+                }
+                
+                
+                </div>
+        </div>
+           
+
+        )
+    }
+
+
+
 
 export default Navbar;
