@@ -8,7 +8,7 @@ class Song extends Component {
     // console.log(this.props.music.results.trackmatches);
     return (
        <>
-        <h1>Songs</h1>
+        <h1>Songs search results...</h1>
       
         <div className="songs-grid">
         
@@ -20,7 +20,7 @@ class Song extends Component {
             {/* <img className="image" /> */}
           <h2>Song: {song.name} </h2>
           <h3>Artist: {song.artist}</h3>
-         <a href={song.url}>
+         <a target="_blank" href={song.url}>
           <button>Click me </button></a>
           </div>
           

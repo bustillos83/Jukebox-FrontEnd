@@ -1,11 +1,9 @@
-
-
 .songs-grid{
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 33% 33% 33%;
-    padding: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     gap: 10px;
+    
   }
   .songs-container{
     border: 1px solid rgba(0, 0, 0, 0.8);
@@ -20,8 +18,11 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 5px;
     color: white;
-
-
+    width: 250px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
 
@@ -38,3 +39,72 @@
     color: white;
 
   }
+
+   /* ========= TABLET ===================== */
+
+@media (min-width: 600px) {
+   
+  .songs-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  }
+
+  .songs-container{
+      width: 300px;
+      height: 300px;
+      margin-left: 40px;
+      background-color: black;
+      color: white;
+      margin-bottom: 10px;
+  }
+
+}
+
+/* =============== MOBILE =================== */
+@media (max-width: 600px) {
+  h1{
+      
+  }
+
+  .songs-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+  }
+
+  .songs-container{
+      width: 300px;
+      height: 300px;
+      margin-left: 40px;
+      background-color: black;
+      color: white;
+      margin-bottom: 10px;
+      
+  }
+
+}
+
+/* ============= DESKTOP =============== */ 
+@media (min-width: 922px) {
+  .songs-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      place-items: center;
+      place-items:center;
+    width: 1160px;
+    margin: 0 auto;
+     
+  }
+
+  .songs-container{
+      width: 300px;
+      height: 300px;
+      margin-left: 40px;
+      background-color: black;
+      color: white;
+      margin-bottom: 10px;
+  }
+}
+

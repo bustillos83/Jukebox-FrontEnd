@@ -6,10 +6,10 @@ import "../App.css";
 
 function Homepage() {
     return (
-        <div className="trending-now">
-        <div className="top-tracks">{<TopTracks/>}</div>
-        <div className="top-artists">{<TopArtists/>}</div>
-        <div className="top-tags">{<TopTags/>}</div>
+        <div className="top-container">
+        <div>{<TopTracks/>}</div>
+        <div>{<TopArtists/>}</div>
+        <div>{<TopTags/>}</div>
       </div>
     )
 }

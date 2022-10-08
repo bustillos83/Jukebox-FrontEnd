@@ -8,11 +8,11 @@
 #login, #signup {
     font-family: 'DynaPuff', cursive !important;
     font-size: 16px !important;
-    color: white !important;
+    color: white ;
 }
 
 #login:hover, #signup:hover {
-    color: rgb(9, 9, 193) !important;
+    color: rgb(215, 7, 252) !important;
     opacity: 90% !important;
 }
 

@@ -1,4 +1,11 @@
 
+.hamburger-links{
+    background-color: rgb(1, 0, 0);
+    width: 150px;
+    height: 100px;
+    border-radius: 10px;
+    
+}
 
 
 @media (min-width: 767px) {
@@ -7,15 +14,22 @@
         
     }
 
-    /* .links-container{
+    .hamburgerIcon{
         display: none;
-        background-color: rgb(217, 23, 23);
-        height: 300px;
-        width: 200px;
-        margin-top: 50px;
-        position: absolute;
-        color: green;
-    } */
+    }
+
+   
 }
 
+@media (max-width: 767px) {
+    .login-modal{
+        display: none;
+       
+    }
+
+    .signup-modal{
+      display: none;
+    }
+
+  }
 
