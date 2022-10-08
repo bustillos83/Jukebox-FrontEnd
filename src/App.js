@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 // === IMPORT COMPONENTS === //
 import Search from "./components/Search";
 import Homepage from "./components/Homepage";
@@ -11,15 +11,6 @@ import Favorites from "./components/Favorites";
 import "./App.css";
 
 let baseURL = process.env.REACT_APP_BACKEND_URL;
-
-// if (process.env.NODE_ENV === "development") {
-//   baseURL = "http://localhost:3003";
-// } else {
-//   baseURL = process.env.REACT_APP_BACKEND_URL;
-// }
-// console.log("current base url: ", baseURL);
-
-console.log("current base url: ", baseURL);
 
 const searchOptions = [
   { label: "Artist", value: "artist" },
@@ -85,12 +76,12 @@ class App extends Component {
 
       () => {
         // fetch request will go here
-        console.log("hi im inside this function");
+        // console.log("hi im inside this function");
         fetch(this.state.searchURL)
           .then((response) => response.json())
           .then(
             (json) => {
-              console.log(json, "this is the json");
+              // console.log(json, "this is the json");
               this.setState({
                 ...this.state,
                 music: { ...json },
@@ -118,67 +109,115 @@ class App extends Component {
   // add function to get (READ) favorites list here
   getFavorites = () => {
     fetch(baseURL + "/faves")
-      .then((res) => {
-        if (res.status === 200) {
-          return res.json();
-        } else {
-          return [];
-        }
-      })
-      .then((data) => {
-        if (data === []) {
-          this.setState({ favorites: data });
-        } else {
-          this.setState({ favorites: data.favorites });
-        }
-      });
-  };
+    .then((res) => {
+      if(res.status === 200) {
+        return res.json()
+      } else {
+        return []
+      }
+    })
+    .then((data) => {
+      console.log("data", data)
+      if (data === []){
+        this.setState({ favorites: data })
+      } else {
+        this.setState({ favorites: data.faves })
+      }
+      
+    })
+  }
 
-  // function to create a favorite
+
+  // function to create a favorite 
+  addFavorite = (favorite) => {
+    const copyFavorites = [...this.state.favorites]
+    copyFavorites.unshift(favorite)
+    this.setState({ favorites: copyFavorites })
+  }
 
   // function to delete a favorite
+  deleteFavorite = (id) => {
+    fetch(baseURL + '/faves/' + id, {
+			method: 'DELETE'
+		}).then( res => {
+			const copyFavorites = [...this.state.favorites];
+			const findIndex = this.state.favorites.findIndex(
+					(favorite) => favorite._id === id
+				);
+			 copyFavorites.splice(findIndex, 1);
+			 this.setState({ favorites: copyFavorites });
+		})
+  }
 
-  // function to update a favorite
+  // function to update a favorite - make SUPERFAV
+  makeSuperFave = (favorite) => {
+    fetch(baseURL + '/faves/' + favorite._id, {
+			method: 'PUT',
+			body: JSON.stringify({ superFave: !favorite.superFave }),
+			headers: {
+				'Content-Type': 'application/json',
+			}
+		})
+			.then((res) => res.json())
+			.then((resJson) => {
+				console.log('resJson', resJson);
+				const copyFavorites = [...this.state.favorites];
+				const findIndex = this.state.favorites.findIndex(
+					(favorite) => favorite._id === resJson._id
+				);
+				copyFavorites[findIndex].superFave = resJson.superFave;
+				this.setState({ favorites: copyFavorites });
+			});
+  }
 
   render() {
     return (
       <Router>
-        <div>
-          <Navbar goHome={this.goHome} />
-          <Search
-            searchOptions={searchOptions}
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
-            handleSelect={this.handleSelect}
-            musicSearch={this.state.musicSearch}
-          />
-
-          <Routes>
-            <Route exact path="/" element={!this.state.music && <Homepage />}>
-              {/* {!this.state.music && <Homepage/>} */}
+      <div className="app">
+        <Navbar goHome={this.goHome}/>
+        <Search
+          searchOptions={searchOptions}
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          handleSelect={this.handleSelect}
+          musicSearch={this.state.musicSearch}
+        />
+        
+         <Routes>
+            <Route exact path="/" element={!this.state.music && <Homepage/>}>
             </Route>
-            <Route
-              path="/favorites"
-              element={<Favorites getFavorites={this.getFavorites} />}
-            ></Route>
+
+            <Route path="/favorites" element={
+            <Favorites 
+              getFavorites={this.getFavorites}
+              favorites={this.state.favorites}
+              addFavorite={this.addFavorite}
+              deleteFavorite={this.deleteFavorite}
+              makeSuperFave={this.makeSuperFave}
+              />
+              }>
+             </Route> 
           </Routes>
 
-          {this.state.music && this.state.searchOption === "album" && (
-            <Album music={this.state.music} />
-          )}
+        {this.state.music && this.state.searchOption === "album" && (
+          <Album music={this.state.music} />
+        )}
 
-          {this.state.music && this.state.searchOption === "artist" ? (
-            <Artist music={this.state.music} />
-          ) : (
-            ""
-          )}
+        {this.state.music && this.state.searchOption === "artist" ? (
+          <Artist music={this.state.music} />
+        ) : (
+          ""
+        )}
 
-          {this.state.music && this.state.searchOption === "track" ? (
-            <Song music={this.state.music} />
-          ) : (
-            ""
-          )}
-        </div>
+        {this.state.music && this.state.searchOption === "track" ? (
+          <Song music={this.state.music} />
+        ) : (
+          ""
+        )}
+
+        
+      </div>
+      
       </Router>
     );
   }

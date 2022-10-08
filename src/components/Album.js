@@ -4,7 +4,7 @@ import "./Album.css";
 class Album extends Component {
 
   render() {
-    console.log("ALBUM DATA", this.props.music);
+    // console.log("ALBUM DATA", this.props.music);
     return (
       <>
         <h1>Album search results...</h1>

@@ -1,7 +1,8 @@
 .navbar {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  height: 100px;
   border: 2px solid black;
   color: white;
   background-color: black;
@@ -11,17 +12,27 @@
 img {
   width: 150px;
   height: 100px;
+}
 
+.links-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.favorites {
+  display: flex;
+  margin-right: 10px;
 }
 
 h1 {
-  flex-grow:1;
-  margin-left: 15px;
+  /* flex-grow:1; */
+  font-size: 40px;
 }
 
 a {
   color: white;
-  margin-right: 20px;
   text-decoration: none;
 }
 
@@ -29,11 +40,6 @@ a:hover {
   cursor: pointer;
 } 
 
-.hamburger{
-  position: absolute;
-  right: 0;
-  top: 100px;
-}
 
 
 

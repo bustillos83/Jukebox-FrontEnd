@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+
+* {
+    font-family: 'DynaPuff', cursive;
+}
+
+select {
+    text-align: center;
+}
+
+.favorites-form {
+    display: flex;
+    justify-content: center;
+}
+
+.name-input {
+    height: 25px;
+}
+
+.fave-btn {
+    height: 30px !important;
+    border-radius: 2px !important;
+}
+
+.table-div {
+    border:outset;
+    background-color: black;
+    color: white;
+    width: 40%;
+    height: 500px;
+    margin: 50px auto;
+    border-radius: 5px;
+    box-shadow: darkgrey;
+    overflow: scroll
+}
+
+.favorites-table {
+    display: flex;
+    justify-content: center;
+    border-collapse: collapse;
+    margin:auto;
+}
+
+tbody {
+    text-align: center;
+}
+
+th {
+    padding-top: 20px;
+    text-decoration: underline;
+}
+
+td {
+   padding: 10px 40px;
+}
+
+tr {
+    border-bottom: 1px outset #ddd;
+}
+
+
+
+.table-data {
+    margin: 50px;
+    
+}
+
+.trash {
+    color: rgb(238, 235, 235);
+    float: right
+}
+
+.trash:hover {
+    color: rgb(154, 54, 54);
+    cursor: pointer;
+}
+
+#fave-name:hover {
+    cursor: pointer;
+    color:rgb(79, 79, 79)
+}
+
+.superFave {
+    font-weight:900;
+    text-transform: uppercase;
+   
+}
+
+@media (max-width: 600px){
+    h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .table-div {
+        width: 75%;
+        font-size: 12px;
+    }
+}
