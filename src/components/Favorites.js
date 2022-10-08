@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import {FaTrashAlt} from "react-icons/fa"
+import "./Favorites.css";
 
 // create edit form component - when user clicks on edit a small form pops up under the favorite item on the list
 
 // select options
 const options = [
-  { value: "Song", text: "Song" },
-  { value: "Album", text: "Album" },
-  { value: "Artist", text: "Artist" },
+  { value: "select", text: "Category" },  
+  { value: "song", text: "Song" },
+  { value: "album", text: "Album" },
+  { value: "artist", text: "Artist" },
 ];
 
 export class Favorites extends Component {
@@ -16,6 +19,10 @@ export class Favorites extends Component {
       type: "",
       name: "",
     };
+  }
+
+  componentDidMount() {
+    this.props.getFavorites();
   }
 
   // function to handle select change
@@ -69,9 +76,36 @@ export class Favorites extends Component {
   render() {
     return (
       <div>
-        <h1>Add to Favorites List</h1>
+        <h1>♥ Favorites List ♥</h1>
+        <div className="table-div">
+          <table className="favorites-table">
+            <tbody className="table-body">
+         
+              {this.props.favorites?.map((favorite) => {
+                //   console.log(this.props.favorites)
+                return (
+                  <tr key={favorite._id} className="table-row">
+                    <td 
+                        onDoubleClick={() => this.props.makeSuperFave(favorite)}
+                        className={favorite.superFave ? 'superFave' : null}
+                    >
+                        {favorite.superFave ? `❤️‍🔥 ${favorite.name}❤️‍🔥 ` : favorite.name}
+                    </td>
+
+                    <td>{favorite.type}</td>
+                    <td className="trash">
+                        <FaTrashAlt onClick={() => this.props.deleteFavorite(favorite._id)}/>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        {/* ===== FORM TO ADD NEW FAVORITE ===== */}
         <div className="favorites-form">
           <select
+            className="type-select"
             name="type"
             id="type"
             value={this.state.value}
@@ -85,31 +119,18 @@ export class Favorites extends Component {
             ))}
           </select>
           <form id="favorites-form" onSubmit={this.handleSubmit}>
-            <label htmlFor="name">Name:</label>
             <input
+              className="name-input"
               type="text"
               id="name"
               name="name"
+              placeholder="What's your favorite?"
               onChange={this.handleChange}
             />
-            <input type="submit" value="Add Favorite" />
+            <input className="fave-btn" type="submit" value="Add" />
           </form>
         </div>
 
-        <div>
-          <table>
-            <tbody>
-              {this.props.favorites.map((favorite) => {
-                return (
-                  <tr key={favorite._id}>
-                    <td>{favorite.type}</td>
-                    <td>{favorite.name}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
       </div>
     );
   }

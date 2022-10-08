@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+
+* {
+    font-family: 'DynaPuff', cursive;
+}
+
+select {
+    text-align: center;
+}
+
+.favorites-form {
+    display: flex;
+    justify-content: center;
+}
+
+.name-input {
+    height: 25px;
+}
+
+.fave-btn {
+    height: 30px !important;
+    border-radius: 2px !important;
+}
+
+
+.favorites-table {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 20px auto;
+}
+
+tbody {
+    border:outset
+}
+
+td {
+   padding-right: 40px;
+}
+
+tr {
+    border-bottom: outset;
+}
+
+.table-data {
+    margin: 50px;
+    
+}
+
+.trash {
+    color: rgb(238, 235, 235);
+}
+
+.trash:hover {
+    color: rgb(0, 0, 0);
+}
+
+.superFave {
+    font-weight:900;
+    font-size:larger;
+}
