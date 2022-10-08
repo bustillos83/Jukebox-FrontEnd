@@ -7,6 +7,7 @@ import Album from "./components/Album";
 import Artist from "./components/Artist";
 import Song from "./Song";
 import Navbar from "./components/Navbar";
+import Favorites from "./components/Favorites"
 import "./App.css";
 
 let baseURL = process.env.REACT_APP_BACKEND_URL;
@@ -36,6 +37,7 @@ class App extends Component {
       apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=12`,
       musicSearch: "",
       searchURL: "",
+      favorites: []
     };
   }
 
@@ -106,19 +108,52 @@ class App extends Component {
     this.performSearch();
   };
 
-  redirectHome = () => {
+  goHome = () => {
+    console.log("go home")
     this.setState({
       music: ""
     })
-    return <Redirect to="/"/>
   }
+
+  // add function to get (READ) favorites list here 
+  getFavorites = () => {
+    fetch(baseURL + "/faves")
+    .then((res) => {
+      if(res.status === 200) {
+        return res.json()
+      } else {
+        return []
+      }
+    })
+    .then((data) => {
+      if (data === []){
+        this.setState({ favorites: data })
+      } else {
+        this.setState({ favorites: data.favorites })
+      }
+    })
+  }
+
+  // will need to redirect user to favorite component
+  goToFavorites = () => {
+    console.log("go to favorites");
+    
+    return <Redirect to="/favorites"/>
+  }
+
+  // function to create a favorite 
+
+  // function to delete a favorite
+
+  // function to update a favorite
+
+
 
   render() {
     return (
       <Router>
       <div>
-        
-        <Navbar redirectHome={this.redirectHome}/>
+        <Navbar goHome={this.goHome} goToFavorites={this.goToFavorites}/>
         <Search
           searchOptions={searchOptions}
           handleSubmit={this.handleSubmit}
@@ -132,7 +167,11 @@ class App extends Component {
             <Route exact path="/">
             {!this.state.music && <Homepage/>}
             </Route>
-          </Switch>
+            <Route path="/favorites">
+              <Favorites 
+              getFavorites={this.getFavorites}/>
+             </Route> 
+             </Switch>
 
         {this.state.music && this.state.searchOption === "album" && (
           <Album music={this.state.music} />

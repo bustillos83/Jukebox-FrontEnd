@@ -20,10 +20,13 @@ function Navbar(props) {
   return (
     <div className="navbar">
       <img src={pic} />
-      <button onClick={props.redirectHome}><h1>Jukebox </h1></button>
+      <a href="/" onClick={props.goHome}>Jukebox</a>
+      {/* <button onClick={props.redirectHome}><h1>Jukebox </h1></button> */}
       <div className="links-container">
-        <Login />
-        <SignUpModel />
+          <a href="/favorites">Favorites</a>
+          {/* <button onClick={props.goToFavorites}>Favorites List</button> */}
+        {/* <Login />
+        <SignUpModel /> */}
       </div>
       <Hamburger toggled={isOpen} toggle={setOpen} />
       <div className="hamburger" onClick={handleClick}>
