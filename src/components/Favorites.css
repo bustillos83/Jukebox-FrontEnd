@@ -22,24 +22,43 @@ select {
     border-radius: 2px !important;
 }
 
+.table-div {
+    border:outset;
+    background-color: black;
+    color: white;
+    width: 40%;
+    height: 500px;
+    margin: 50px auto;
+    border-radius: 5px;
+    box-shadow: darkgrey;
+    overflow: scroll
+}
 
 .favorites-table {
     display: flex;
     justify-content: center;
-    margin: 20px auto 20px auto;
+    border-collapse: collapse;
+    margin:auto;
 }
 
 tbody {
-    border:outset
+    text-align: center;
+}
+
+th {
+    padding-top: 20px;
+    text-decoration: underline;
 }
 
 td {
-   padding-right: 40px;
+   padding: 10px 40px;
 }
 
 tr {
-    border-bottom: outset;
+    border-bottom: 1px outset #ddd;
 }
+
+
 
 .table-data {
     margin: 50px;
@@ -48,13 +67,21 @@ tr {
 
 .trash {
     color: rgb(238, 235, 235);
+    float: right
 }
 
 .trash:hover {
-    color: rgb(0, 0, 0);
+    color: rgb(154, 54, 54);
+    cursor: pointer;
+}
+
+#fave-name:hover {
+    cursor: pointer;
+    color:rgb(79, 79, 79)
 }
 
 .superFave {
     font-weight:900;
-    font-size:larger;
+    text-transform: uppercase;
+   
 }
