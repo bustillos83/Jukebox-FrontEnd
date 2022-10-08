@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 // === IMPORT COMPONENTS === //
 import Search from "./components/Search";
 import Homepage from "./components/Homepage"
@@ -134,12 +134,6 @@ class App extends Component {
     })
   }
 
-  // will need to redirect user to favorite component
-  goToFavorites = () => {
-    console.log("go to favorites");
-    
-    return <Redirect to="/favorites"/>
-  }
 
   // function to create a favorite 
 
@@ -153,7 +147,7 @@ class App extends Component {
     return (
       <Router>
       <div>
-        <Navbar goHome={this.goHome} goToFavorites={this.goToFavorites}/>
+        <Navbar goHome={this.goHome}/>
         <Search
           searchOptions={searchOptions}
           handleSubmit={this.handleSubmit}
@@ -162,16 +156,14 @@ class App extends Component {
           musicSearch={this.state.musicSearch}
         />
         
-         {/* do we need the switch component if we don't have other routes? */}
-         <Switch>
-            <Route exact path="/">
-            {!this.state.music && <Homepage/>}
+         <Routes>
+            <Route exact path="/" element={!this.state.music && <Homepage/>}>
             </Route>
-            <Route path="/favorites">
-              <Favorites 
-              getFavorites={this.getFavorites}/>
+            <Route path="/favorites" element={<Favorites 
+              getFavorites={this.getFavorites}/>}>
+            
              </Route> 
-             </Switch>
+             </Routes>
 
         {this.state.music && this.state.searchOption === "album" && (
           <Album music={this.state.music} />
