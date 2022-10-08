@@ -1,13 +1,13 @@
 import React, { Component } from "react";
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 // === IMPORT COMPONENTS === //
 import Search from "./components/Search";
+import Homepage from "./components/Homepage"
 import Album from "./components/Album";
 import Artist from "./components/Artist";
 import Song from "./Song";
 import Navbar from "./components/Navbar";
-import TopTracks from "./components/TopTracks";
-import TopArtists from "./components/TopArtists";
-import TopTags from "./components/TopTags";
+import Favorites from "./components/Favorites"
 import "./App.css";
 
 let baseURL = process.env.REACT_APP_BACKEND_URL;
@@ -37,6 +37,7 @@ class App extends Component {
       apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=12`,
       musicSearch: "",
       searchURL: "",
+      favorites: []
     };
   }
 
@@ -107,13 +108,52 @@ class App extends Component {
     this.performSearch();
   };
 
+  goHome = () => {
+    console.log("go home")
+    this.setState({
+      music: ""
+    })
+  }
+
+  // add function to get (READ) favorites list here 
+  getFavorites = () => {
+    fetch(baseURL + "/faves")
+    .then((res) => {
+      if(res.status === 200) {
+        return res.json()
+      } else {
+        return []
+      }
+    })
+    .then((data) => {
+      if (data === []){
+        this.setState({ favorites: data })
+      } else {
+        this.setState({ favorites: data.favorites })
+      }
+    })
+  }
+
+  // will need to redirect user to favorite component
+  goToFavorites = () => {
+    console.log("go to favorites");
+    
+    return <Redirect to="/favorites"/>
+  }
+
+  // function to create a favorite 
+
+  // function to delete a favorite
+
+  // function to update a favorite
+
+
+
   render() {
-    console.log("THIS IS THE STATE IN RENDER:", this.state);
-    // console.log("searchOption:", this.state.searchOption)
-    // console.log("method:", this.state.method);
     return (
+      <Router>
       <div>
-        <Navbar />
+        <Navbar goHome={this.goHome} goToFavorites={this.goToFavorites}/>
         <Search
           searchOptions={searchOptions}
           handleSubmit={this.handleSubmit}
@@ -121,13 +161,17 @@ class App extends Component {
           handleSelect={this.handleSelect}
           musicSearch={this.state.musicSearch}
         />
-        <div className="top-container" >
-          <div>{!this.state.music && <TopTracks />}</div>
-          <div>
-            {!this.state.music && <TopArtists />}
-          </div>
-          <div>{!this.state.music && <TopTags />}</div>
-        </div>
+        
+         {/* do we need the switch component if we don't have other routes? */}
+         <Switch>
+            <Route exact path="/">
+            {!this.state.music && <Homepage/>}
+            </Route>
+            <Route path="/favorites">
+              <Favorites 
+              getFavorites={this.getFavorites}/>
+             </Route> 
+             </Switch>
 
         {this.state.music && this.state.searchOption === "album" && (
           <Album music={this.state.music} />
@@ -145,10 +189,10 @@ class App extends Component {
           ""
         )}
       </div>
+         
+      </Router>
     );
   }
 }
 
 export default App;
-
-// need this for commit
