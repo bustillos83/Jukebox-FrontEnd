@@ -167,6 +167,7 @@ class App extends Component {
             </Route>
             <Route path="/favorites" element={<Favorites 
               getFavorites={this.getFavorites}
+              favorites={this.state.favorites}
               addFavorite={this.addFavorite}
               />}>
             
