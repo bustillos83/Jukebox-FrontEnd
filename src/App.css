@@ -300,3 +300,13 @@ h1{
     }
 }
 
+/* === FOOTER STYLING === */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.footer>a {
+  color: black;
+}

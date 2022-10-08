@@ -8,6 +8,7 @@ import Artist from "./components/Artist";
 import Song from "./Song";
 import Navbar from "./components/Navbar";
 import Favorites from "./components/Favorites"
+import Footer from "./components/Footer"
 import "./App.css";
 
 let baseURL = process.env.REACT_APP_BACKEND_URL;
@@ -216,6 +217,8 @@ class App extends Component {
         ) : (
           ""
         )}
+
+        <Footer/>
       </div>
          
       </Router>
