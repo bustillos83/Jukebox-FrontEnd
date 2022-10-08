@@ -51,9 +51,6 @@
 
   /* =============== MOBILE =================== */
 @media (max-width: 600px) {
-    h1{
-        
-    }
 
     .album-grid{
         display: grid;

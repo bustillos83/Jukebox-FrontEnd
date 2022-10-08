@@ -7,7 +7,7 @@ class TopTags extends Component {
     this.state = {
       baseURL: "https://ws.audioscrobbler.com/2.0/?",
       method: "method=chart.gettoptags",
-      apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=5`,
+      apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=6`,
       tracksURL: "",
       music: {},
     };

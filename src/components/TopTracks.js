@@ -8,7 +8,7 @@ class TopTracks extends Component {
     this.state = {
       baseURL: "https://ws.audioscrobbler.com/2.0/?",
       method: "method=chart.gettoptracks",
-      apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=5`,
+      apiKey: `&api_key=${process.env.REACT_APP_API_KEY}&format=json&limit=6`,
       tracksURL: "",
       music: {},
     };
@@ -56,6 +56,7 @@ class TopTracks extends Component {
                 className="indiv-container-tracks"
                 style={{ backgroundImage: `url(${trackimg})` }}
               >
+              <div className="overlay">
                 <h2>
                   {track.name} by {track.artist.name}
                 </h2>
@@ -63,6 +64,7 @@ class TopTracks extends Component {
                 <a target="_blank" href={track.url}>
                   <button className="tracks-button">Listen Now</button>
                 </a>
+                </div>
                 {/* <img src={track.image[3]["#text"]} alt="" /> */}
               </div>
             );

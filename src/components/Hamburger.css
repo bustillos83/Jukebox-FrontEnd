@@ -8,9 +8,6 @@
 }
 
 
-
-
-
 @media (min-width: 767px) {
     .hamburger-links{
         display: none;
@@ -24,7 +21,7 @@
    
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
     .login-modal{
         display: none;
        
