@@ -4,7 +4,7 @@ import "./Navbar.css";
 import HamburgerMenu from "./HamburgerMenu";
 import Hamburger from "hamburger-react";
 import Login from "./Login";
-import SignUpModel from "./SignUpModel";
+import SignUp from "./SignUp";
 
 import React, { useState } from "react";
 
@@ -18,43 +18,24 @@ function Navbar() {
     <div className="navbar">
       <img src={pic} />
       <h1>Jukebox </h1>
-      <div className="links-container">
+
+      {/* <div className="login-modal">
         <Login />
         <SignUpModel />
       </div>
 
-            <img src={pic}/>
-                <h1>Jukebox </h1>
-               
-                <div className='login-modal'>
-                <Login/>
-                </div>
-                
-                <div className='signup-modal'>
-                <SignUp/>
-                </div>
-              
-                <div className='hamburgerIcon' onClick={handleClick}>
-                <Hamburger toggled={isOpen} toggle={setOpen} />
-                </div>
-                <div className="hamburger" >
-                
-                {!isOpen ? (
-                    console.log("closed")
-                    
-                ) 
-                : (<HamburgerMenu  /> )
-                }
-                
-                
-                </div>
-        </div>
-           
+      <div className="signup-modal">
+        <SignUp />
+      </div>
 
-        )
-    }
-
-
-
+      <div className="hamburgerIcon" onClick={handleClick}>
+        <Hamburger toggled={isOpen} toggle={setOpen} />
+      </div>
+      <div className="hamburger">
+        {!isOpen ? console.log("closed") : <HamburgerMenu />}
+      </div> */}
+    </div>
+  );
+}
 
 export default Navbar;
